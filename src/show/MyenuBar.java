@@ -6,8 +6,8 @@ import javax.swing.JButton;
 
 
 
-public class Menubox extends JMenuBar{
-    public Menubox() {
+public class MyenuBar extends JMenuBar{
+    public MyenuBar() {
         this.add( new JMenu("file") );
         this.add( new JMenu("edit") );
         

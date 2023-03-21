@@ -6,23 +6,21 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class UML_editor extends JFrame {
-    private Menubox menu;
-    private JButton[] tbtn ;
+    private MyenuBar menu ;
+    private Mytoolbar toolbar ;
 
     public UML_editor(){
         System.out.println("UML_editor constructor.");
     
-        this.menu = new Menubox();
+        this.menu = new MyenuBar();
         this.setJMenuBar(menu);
 
 		this.setLayout(new BorderLayout());
 
-        this.tbtn[0] = new JButton("Button") ;
-        this.setBounds(0, 0, 100, 100);
-        this.add(this.tbtn[0],BorderLayout.EAST);
+        this.toolbar = new Mytoolbar() ;
+        this.getContentPane().add(this.toolbar, BorderLayout.WEST);
 
-
-        this.setTitle("UML_Editor_111522050");
+        this.setTitle("UML_Editor");
 		this.setSize(1000, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
