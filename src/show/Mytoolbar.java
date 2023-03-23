@@ -9,10 +9,10 @@ import javax.swing.JToolBar;
 public class Mytoolbar extends JToolBar {
 
     private static Mytoolbar mytoolbar ;
-    private static JButton clickedbtn ;
+    
 
     Mytoolbar() {
-        clickedbtn = null ;
+        //clickedbtn = null ;
 
         this.setLayout(new GridLayout(6, 1));
         this.add(new ToolButton("select"));
@@ -34,14 +34,6 @@ public class Mytoolbar extends JToolBar {
         return mytoolbar;
     }
 
-    public static void setclickbtn( ToolButton temp ) {
-        if ( clickedbtn != null ) 
-            clickedbtn.setBackground(Color.WHITE); 
-
-        clickedbtn = temp ;
-        temp.setBackground(Color.GRAY);
-        System.out.println("setselectbtn");
-        
-    }
+    
 
 }

@@ -9,6 +9,8 @@ import javax.swing.JToolBar;
 import javax.swing.ImageIcon;
 public class ToolButton extends JButton {
     // Mytoolbar toolbar ;
+    private static ToolButton clickedbtn ;
+
     ToolButton( String imgname ) {
         // this.toolbar = Mytoolbar.getmytoolbar() ;
         String path = "src/images/" + imgname + ".png" ;
@@ -24,6 +26,16 @@ public class ToolButton extends JButton {
         this.addActionListener(new ToolbtnOnclick());
     }
 
+    public static void setclickbtn( ToolButton temp ) {
+        if ( clickedbtn != null ) 
+            clickedbtn.setBackground(Color.WHITE); 
+
+        clickedbtn = temp ;
+        temp.setBackground(Color.GRAY);
+        System.out.println("setselectbtn");
+        
+    }
+
     private class ToolbtnOnclick implements ActionListener {
         //private int index;
 
@@ -34,9 +46,11 @@ public class ToolButton extends JButton {
         @Override
         public void actionPerformed(ActionEvent e) {
             ToolButton temp = (ToolButton) e.getSource() ;
-            Mytoolbar.setclickbtn( temp ) ;
+            setclickbtn( temp ) ;
 
         }
+
+
     }
 
 }
