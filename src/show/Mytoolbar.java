@@ -6,6 +6,9 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JToolBar;
+
+import mode.*;
+
 public class Mytoolbar extends JToolBar {
 
     private static Mytoolbar mytoolbar ;
@@ -15,12 +18,12 @@ public class Mytoolbar extends JToolBar {
         //clickedbtn = null ;
 
         this.setLayout(new GridLayout(6, 1));
-        this.add(new ToolButton("select"));
-        this.add(new ToolButton("association"));
-        this.add(new ToolButton("generalization"));
-        this.add(new ToolButton("composition"));
-        this.add(new ToolButton("class"));
-        this.add(new ToolButton("use_case"));
+        this.add( new ToolButton("select", new Selection()));
+        this.add(new ToolButton("association", new Createassociation()));
+        this.add(new ToolButton("generalization", new Creategeneralization()));
+        this.add(new ToolButton("composition", new Createcomposition()));
+        this.add(new ToolButton("class", new Createclass()));
+        this.add(new ToolButton("use_case", new Createusecase()));
         this.setFloatable( false);
     }
 
