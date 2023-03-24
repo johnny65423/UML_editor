@@ -1,8 +1,9 @@
 package objects;
 
+import java.awt.Graphics;
 import java.awt.Point;
 
-public class Basicobject extends Object {
+public abstract class Basicobject extends Myobject {
     // private Port[] p = new Port[4] ;
     protected int w, h ;
     protected void setposition( Point p ) {
@@ -12,6 +13,8 @@ public class Basicobject extends Object {
         this.y2 = p.y + h ;
     }
 
+    public abstract void paintobj( Graphics g ) ;
+    
     /*
     public void setport() {
         this.p[0] = new Port( (x1+x2)/2, y1 ) ;

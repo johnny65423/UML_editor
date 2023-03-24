@@ -19,11 +19,13 @@ public class UML_editor extends JFrame {
         this.menu = new MymenuBar();
         this.setJMenuBar(menu);
 
-        this.penel = Mypenel.getmypenel() ;
-        getContentPane().add(this.penel, BorderLayout.CENTER);
-
-        this.toolbar = Mytoolbar.getmytoolbar() ;
+        this.toolbar = new Mytoolbar() ;
         this.getContentPane().add(this.toolbar, BorderLayout.WEST);
+
+        this.penel = Mypenel.getmypenel() ;
+        this.getContentPane().add(this.penel, BorderLayout.CENTER);
+
+        
 
 
 

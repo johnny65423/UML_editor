@@ -1,5 +1,11 @@
 package objects;
 
-public class Connectionline extends Object {
+import java.awt.Graphics;
+
+public class Connectionline extends Myobject {
+
+    @Override
+    public void paintobj(Graphics g) {
+    }
     
 }

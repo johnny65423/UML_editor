@@ -26,7 +26,7 @@ public class Mytoolbar extends JToolBar {
         this.add(new ToolButton("use_case", new Createusecase()));
         this.setFloatable( false);
     }
-
+    /*
     public static Mytoolbar getmytoolbar() {
         if (mytoolbar == null) {
             System.out.println("new mytoolbar()");
@@ -36,7 +36,7 @@ public class Mytoolbar extends JToolBar {
         
         return mytoolbar;
     }
-
+    */
     
 
 }

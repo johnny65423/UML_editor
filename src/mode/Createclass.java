@@ -2,6 +2,9 @@ package mode;
 
 import java.awt.event.MouseEvent;
 
+import objects.Classobject;
+import show.Mypenel;
+
 public class Createclass extends Mymode {
 
 	public Createclass() {
@@ -10,6 +13,8 @@ public class Createclass extends Mymode {
 
     public void mousePressed( MouseEvent e ) {
         System.out.println("create class");
+		Mypenel.addobject(new Classobject(e.getX(), e.getY()));
+		
 	}
     public void mouseReleased(MouseEvent e) {
 	}
