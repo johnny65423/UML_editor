@@ -8,8 +8,22 @@ import javax.swing.JButton;
 
 public class MymenuBar extends JMenuBar{
     public MymenuBar() {
-        this.add( new JMenu("file") );
-        this.add( new JMenu("edit") );
+        JMenu file = new JMenu("file") ;
+        JMenu edit = new JMenu("edit") ;
+        JMenuItem temp = new JMenuItem("Group") ;
+        temp.addActionListener(null);
+        edit.add(temp);
+
+        temp = new JMenuItem("Ungroup") ;
+        temp.addActionListener(null);
+        edit.add(temp);
+
+        temp = new JMenuItem("change object name") ;
+        temp.addActionListener(null);
+        edit.add(temp);
+
+        this.add( file );
+        this.add( edit );
         
 
     }

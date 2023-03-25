@@ -42,7 +42,8 @@ public class ToolButton extends JButton {
         temp.setBackground(Color.GRAY);
 
         Mypenel.setmode(clickedbtn.buttonmode);
-
+        Mypenel.setselectobj(null);
+        Mypenel.refresh();
     }
 
 
