@@ -20,32 +20,38 @@ public class Selection extends Mymode {
 		
 		List<Myobject> temp = Mypenel.getobjlist() ;
 		boolean find = false ;
-
-        System.out.println("selection list size:"+ temp.size());
+		Mypenel.popselectobj();
 		for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
-			String result = temp.get(i).isin( start )  ;
+			String result = temp.get(i).ison( start )  ;
 			if ( result != "out" ) {
 				int[] arr = temp.get(i).getloc() ;
 				System.out.println(result);
 				find = true ;
 				gap = new Point( start.x-arr[0], start.y-arr[1] ) ;
-				Mypenel.setselectobj(temp.get(i));
+				start = null ;
+				Mypenel.addselectobj(temp.get(i));
 			}
-			if (!find) 
-				Mypenel.setselectobj(null);
+
 			Mypenel.refresh() ;
 		}
 	}
     public void mouseReleased(MouseEvent e) {
 	}
 	public void mouseDragged(MouseEvent e) {
-		
-		Myobject temp = Mypenel.getselectobj() ;
-		if ( temp != null ) {
-			
-			temp.move( new Point(e.getX()- gap.x, e.getY()- gap.y) ) ;
-
+		if ( start == null ) {
+			List<Myobject> temp = Mypenel.getselectobj() ;
+			if ( temp.size() > 0 ) {
+				
+				temp.get(0).move( new Point(e.getX()- gap.x, e.getY()- gap.y) ) ;
+	
+			}
+		} 
+		else {
+			Point temp = e.getPoint() ; 
+			Mypenel.setselectarea( new Point( start ), new Point( temp ) ) ;
+			Mypenel.multiselect() ;
 		}
+
 
 		Mypenel.refresh();
 	}

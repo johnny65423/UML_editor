@@ -17,9 +17,13 @@ public abstract class Connectionline extends Myobject {
         ;
     }
 
-    public String isin(Point p){
+    public String ison(Point p){
         return "out" ;
 
+    }
+
+    public boolean inside( Point p1, Point p2 ) {
+        return false ;
     }
 
     public Connectionline( Point start, Point end ) {

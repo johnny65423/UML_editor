@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
@@ -19,9 +20,13 @@ public class Mypenel extends JPanel {
     private static Mypenel mypenel ;
     private static Mymode choosemode ;
     private static List<Myobject> objlist = new ArrayList<Myobject>() ;
-    private static Myobject selectobj = null, templine = null ;
+    private static List<Myobject> selectobj = new ArrayList<Myobject>() ;
+    private static Myobject templine = null ;
+    private static boolean selectarea = false ;
+    private static Point[] selectareapoint = new Point[2] ;
+
     private Mypenel() { // from ChatGPT
-        // this.setToolTipText("penel");
+        // this.setToolTipText("penel"); 
     }
     
     public static Mypenel getmypenel() {
@@ -57,23 +62,23 @@ public class Mypenel extends JPanel {
         g2d.setColor(Color.LIGHT_GRAY);
 		g2d.fillRect(0,0,getSize().width,getSize().height);
         g2d.setColor(Color.BLACK);
-        if (selectobj != null)
-            selectobj.paintselect(g2d);
+        
 
         for ( int i = 0 ; i < objlist.size() ; i++ ) {
             objlist.get(i).paintobj(g2d);
-            /* 
-            if (objlist.get(i).name == "line") {
-                System.out.print(objlist.get(i).getport(0));
-                System.out.println(" " + objlist.get(i).getport(1));
-            } 
-            */
-            //System.out.println(i);
+            // for ( int j = 0 ; j < selectobj.size() ; j++ )
+                if ( selectobj.contains(objlist.get(i)) )
+                    objlist.get(i).paintselect(g2d);
         }
         //if (selectobj != null)
         //    selectobj.paintselect(g2d);
         if (templine !=  null)
             templine.paintobj(g2d);
+
+        if (selectarea)
+            paintselectarea(g2d);
+        System.out.println(selectobj.size());
+        
     }
 
     public static void refresh() {
@@ -81,11 +86,18 @@ public class Mypenel extends JPanel {
         mypenel.repaint();
     }
 
-    public static void setselectobj( Myobject obj ) {
-        Mypenel.selectobj = obj ;
+    public static void addselectobj( Myobject obj ) {
+        Mypenel.selectobj.add(obj) ;
     }
 
-    public static Myobject getselectobj() {
+    public static void popselectobj() {
+        while ( Mypenel.selectobj.size() > 0 )
+            Mypenel.selectobj.remove( Mypenel.selectobj.size() - 1 ) ;
+        
+        selectarea = false ;
+    }
+
+    public static List<Myobject> getselectobj() {
         return Mypenel.selectobj ;
     }
 
@@ -97,4 +109,36 @@ public class Mypenel extends JPanel {
         return objlist ;
     }
 
+    public static void setselectarea( Point p1, Point p2 ) {
+        selectarea = true ;
+        int x1, y1, x2, y2 ;
+        x1 = Math.min(p1.x, p2.x);
+        x2 = Math.max(p1.x, p2.x);
+        y1 = Math.min(p1.y, p2.y);
+        y2 = Math.max(p1.y, p2.y);
+        selectareapoint[0] = new Point(x1, y1) ;
+        selectareapoint[1] = new Point(x2, y2) ;
+    }
+
+    public static void multiselect() {
+        for ( int i = 0 ; i < objlist.size() ; i++ ) {
+            if ( !selectobj.contains(objlist.get(i)) && objlist.get(i).inside(selectareapoint[0], selectareapoint[1]) )
+                selectobj.add( objlist.get(i) ) ;
+            else if ( selectobj.contains(objlist.get(i)) && !objlist.get(i).inside(selectareapoint[0], selectareapoint[1]) )
+                selectobj.remove(objlist.get(i) ) ;
+                
+
+        }
+    }
+
+    private void paintselectarea( Graphics2D g ) {
+
+        int w = selectareapoint[1].x - selectareapoint[0].x;
+        int h = selectareapoint[1].y - selectareapoint[0].y;
+
+        g.setColor(new Color(168, 167, 255, 102));
+        g.fillRect(selectareapoint[0].x, selectareapoint[0].y, w, h);
+        g.setColor(new Color(168, 167, 255, 205));
+        g.drawRect(selectareapoint[0].x, selectareapoint[0].y, w, h);
+    }
 }

@@ -10,7 +10,8 @@ public abstract class Myobject {
     public abstract void paintobj( Graphics g ) ;
     public abstract void paintselect( Graphics g ) ;
     public abstract Point getport( int i ) ;
-    public abstract String isin( Point p );
+    public abstract String ison( Point p );
+    public abstract boolean inside( Point p1, Point p2 );
     public abstract void setposition(Point point) ;
     public abstract void move(Point point) ;
     public int[] getloc() {

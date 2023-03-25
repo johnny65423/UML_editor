@@ -51,11 +51,11 @@ public abstract class Basicobject extends Myobject {
     
     public void paintselect( Graphics g ) {
         for ( int i = 0 ; i < 4 ; i++ ) {
-            g.fillRect((int) this.port[i].getX()-5, (int) this.port[i].getY()-5, 10, 10);
+            g.fillRect( this.port[i].x-5, this.port[i].y-5, 10, 10);
         }
     }
     
-    public String isin( Point p ) {
+    public String ison( Point p ) {
         if ( getarea(x1, y1, x2, y1).contains(p) )
             return "up" ;
         else if ( getarea(x1, y2, x2, y2).contains(p) )
@@ -67,6 +67,13 @@ public abstract class Basicobject extends Myobject {
 
         return "out" ;
     }
+
+    public boolean inside( Point p1, Point p2 ) {
+        if ( p1.x <= x1 && p2.x >= x2 && p1.y <= y1 && p2.y >= y2 )
+            return true ;
+        return false ;
+
+    } 
 
     private Area getarea(int px1, int py1, int px2, int py2) {
         Path2D path = new Path2D.Double();

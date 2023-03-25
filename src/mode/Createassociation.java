@@ -20,7 +20,7 @@ public class Createassociation extends Createline {
 
         
 		for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
-			String result = temp.get(i).isin( e.getPoint() )  ;
+			String result = temp.get(i).ison( e.getPoint() )  ;
 			if ( result != "out" ) {
 				System.out.println(result);
 				find = true ;
@@ -39,7 +39,7 @@ public class Createassociation extends Createline {
 
         
 		for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
-			String result = temp.get(i).isin( e.getPoint() )  ;
+			String result = temp.get(i).ison( e.getPoint() )  ;
 			if ( i != thisindex && result != "out" ) {
 				System.out.println(result);
 				find = true ;
