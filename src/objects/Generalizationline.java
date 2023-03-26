@@ -3,8 +3,6 @@ package objects;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.geom.Area;
-import java.awt.geom.Path2D;
 
 public class Generalizationline extends Connectionline {
     int[] pointx, pointy ;

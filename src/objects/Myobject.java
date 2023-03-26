@@ -14,6 +14,9 @@ public abstract class Myobject {
     public abstract void paintobj( Graphics g ) ;
     public abstract void paintselect( Graphics g ) ;
     public abstract Point getport( String direction ) ;
+    public boolean ungroup() {
+        return false;
+    }
     public int getindex() {
         return -1 ;
     }

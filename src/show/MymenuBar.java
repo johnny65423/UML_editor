@@ -60,7 +60,13 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("UngroupOnclick");
+            if ( Mypenel.getselectobj().size() == 1 ) {
+                System.out.println("UngroupOnclick");
+                if ( Mypenel.getselectobj().get(0).ungroup() )
+                    Mypenel.getobjlist().remove(Mypenel.getselectobj().get(0));
+                Mypenel.refresh();
+            }
+            
         }
 
 

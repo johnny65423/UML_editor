@@ -27,7 +27,7 @@ public class Selection extends Mymode {
 				int[] arr = temp.get(i).getloc() ;
 				System.out.println(result);
 				find = true ;
-				gap = new Point( start.x-arr[0], start.y-arr[1] ) ;
+				gap = new Point( start.x -arr[0], start.y - arr[1] ) ;
 				start = null ;
 				Mypenel.addselectobj(temp.get(i));
 			}
@@ -40,17 +40,18 @@ public class Selection extends Mymode {
 	}
 
 	public void mouseDragged(MouseEvent e) {
+		
 		if ( start == null ) {
-			List<Myobject> temp = Mypenel.getselectobj() ;
-			if ( temp.size() > 0 ) {
-				
-				temp.get(0).move( new Point(e.getX()- gap.x, e.getY()- gap.y) ) ;
+			List<Myobject> templist = Mypenel.getselectobj() ;
+			if ( templist.size() > 0 ) {
+				Myobject temp = templist.get(0) ;
+				temp.move( new Point( e.getX() - gap.x, e.getY() - gap.y) ) ;
 	
 			}
 		} 
 		else {
-			Point temp = e.getPoint() ; 
-			Mypenel.setselectarea( new Point( start ), new Point( temp ) ) ;
+			Point end = e.getPoint() ; 
+			Mypenel.setselectarea( new Point( start ), new Point( end ) ) ;
 			Mypenel.multiselect() ;
 		}
 

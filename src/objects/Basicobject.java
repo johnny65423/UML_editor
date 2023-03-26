@@ -25,7 +25,7 @@ public abstract class Basicobject extends Myobject {
     }
 
     public void move( Point p ) {
-
+        //System.out.println(""+x1+" "+y1);
         this.x1 = p.x ;
         this.x2 = p.x + w ;
         this.y1 = p.y ;

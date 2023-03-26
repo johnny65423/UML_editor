@@ -80,9 +80,8 @@ public class Mypenel extends JPanel {
 
         for ( int i = 0 ; i < objlist.size() ; i++ ) {
             objlist.get(i).paintobj(g2d);
-            // for ( int j = 0 ; j < selectobj.size() ; j++ )
-                if ( selectobj.contains(objlist.get(i)) )
-                    objlist.get(i).paintselect(g2d);
+            if ( selectobj.contains(objlist.get(i)) )
+                objlist.get(i).paintselect(g2d);
         }
         //if (selectobj != null)
         //    selectobj.paintselect(g2d);
@@ -157,17 +156,19 @@ public class Mypenel extends JPanel {
     }
 
     public static void rename() {
-        JTextField textArea = new JTextField(selectobj.get(0).name);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        Object[] options = {"OK", "Cancel"};
-        int choice = JOptionPane.showOptionDialog(null, scrollPane, "Enter your text",
-                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
-        if (choice == JOptionPane.OK_OPTION) {
-            selectobj.get(0).name = textArea.getText();
-            System.out.println("Change to: " + selectobj.get(0).name);
-            refresh();
+        if (selectobj.get(0).name != "_composite***" ) {
+            JTextField textArea = new JTextField(selectobj.get(0).name);
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            Object[] options = {"OK", "Cancel"};
+            int choice = JOptionPane.showOptionDialog(null, scrollPane, "Enter your text",
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
+            if (choice == JOptionPane.OK_OPTION) {
+                selectobj.get(0).name = textArea.getText();
+                System.out.println("Change to: " + selectobj.get(0).name);
+                refresh();
+            }
         }
-        
-        
+
     }
+
 }

@@ -11,9 +11,10 @@ import java.util.ArrayList;
 
 public class Composite extends Myobject {
     private List<Myobject> groupobjlist = new ArrayList<Myobject>() ;
+    private List<Point> objgaplist = new ArrayList<Point>() ;
     private int target ; 
     public Composite() {
-        this.name = "composite" ;
+        this.name = "_composite***" ;
         this.target = -1 ;
         this.collectobj();
         this.setposition(null);
@@ -39,23 +40,38 @@ public class Composite extends Myobject {
         this.y2 += 10 ;
         this.w = this.x2 - this.x1 ;
         this.h = this.y2 - this.y1 ;
+
+
+        for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
+            Myobject temp = groupobjlist.get(i) ;
+            Point gap = new Point( temp.x1 -x1, temp.y1 - y1 ) ;
+            System.out.println("gap:"+gap.x+" "+gap.y);
+            objgaplist.add(gap);
+        }
+
     }
 
     public String ison( Point p ) {
         if ( x1 <= p.x && p.x <= x2 && y1 <= p.y && p.y <= y2 )
-            return "in" ;
+            return "group" ;
         return "out" ;
     }
 
     public void move( Point p ) {
-        this.x1 = p.x - 10 ;
-        this.x2 = p.x + w + 10 ;
-        this.y1 = p.y - 10 ;
-        this.y2 = p.y + h + 10 ;
+        this.x1 = p.x ;
+        this.x2 = p.x + w ;
+        this.y1 = p.y ;
+        this.y2 = p.y + h ;
 
         for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
-            groupobjlist.get(i).move(p);
+            Myobject temp = groupobjlist.get(i) ;
+            int[] arr = temp.getloc() ;
+            Point gap = new Point(this.x1 -arr[0] , this.y1 - arr[1] ) ;
+            //System.out.println(""+( gap.x)+" "+(gap.y));
+            temp.move(new Point( this.x1+objgaplist.get(i).x, this.y1+objgaplist.get(i).y ));
         }
+
+
     }
 
     public void paintobj(Graphics g) {
@@ -90,4 +106,18 @@ public class Composite extends Myobject {
         }
 
     }
+
+    public boolean ungroup() {
+        System.out.println("ungroup");
+
+        for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
+            groupobjlist.get(i).undergroup = false ;
+        }
+        while ( groupobjlist.size() > 0 )
+            groupobjlist.remove( groupobjlist.size() - 1 ) ;
+        while ( objgaplist.size() > 0 )
+        objgaplist.remove( objgaplist.size() - 1 ) ;
+        return true ;
+    }
+    
 }
