@@ -2,8 +2,6 @@ package mode;
 
 import java.awt.event.MouseEvent;
 import java.util.List;
-
-import objects.Associationline;
 import objects.Generalizationline;
 import objects.Myobject;
 import show.Mypenel;

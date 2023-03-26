@@ -1,10 +1,6 @@
 package mode;
 
 import java.awt.Point;
-import java.awt.event.MouseEvent;
-
-import objects.Basicobject;
-import objects.Myobject;
 
 public class Createline extends Mymode {
     Point start, end ;

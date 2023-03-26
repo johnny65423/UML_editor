@@ -1,9 +1,6 @@
 package show;
 
 import java.awt.BorderLayout;
-import java.io.IOException;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class UML_editor extends JFrame {

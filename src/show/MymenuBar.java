@@ -82,8 +82,6 @@ public class MymenuBar extends JMenuBar{
         public void actionPerformed(ActionEvent e) {
             if ( Mypenel.getselectobj().size() == 1 )
                 Mypenel.rename();
-            else 
-                System.out.println( "select more then one" ) ;
                 
         }
 
