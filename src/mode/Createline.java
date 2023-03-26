@@ -9,6 +9,7 @@ import objects.Myobject;
 public class Createline extends Mymode {
     Point start, end ;
 
+    /*
     protected Point getport( Myobject obj, String direction ) {
         Point temp = null ;
         if ( direction == "up" )
@@ -23,6 +24,6 @@ public class Createline extends Mymode {
 
         return temp ;
     }
-
+    */
     
 }

@@ -25,7 +25,7 @@ public class Creategeneralization extends Createline {
 			if ( result != "out" ) {
 				System.out.println(result);
 				find = true ;
-				start = getport(temp.get(i), result) ;
+				start = temp.get(i).getport(result) ;
 				thisindex = i ;
 				System.out.println("GET START");
 			}
@@ -44,7 +44,7 @@ public class Creategeneralization extends Createline {
 			if ( i != thisindex && result != "out" ) {
 				System.out.println(result);
 				find = true ;
-				end = getport(temp.get(i), result) ;
+				end = temp.get(i).getport(result) ;
 			}
 			
 			

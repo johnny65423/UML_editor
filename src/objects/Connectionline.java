@@ -16,13 +16,15 @@ public abstract class Connectionline extends Myobject {
     public void move( Point p ) {
         ;
     }
-
+    
+    @Override
     public String ison(Point p){
         return "out" ;
 
     }
 
     public boolean inside( Point p1, Point p2 ) {
+        // System.out.println("line not inside.");
         return false ;
     }
 
@@ -47,8 +49,9 @@ public abstract class Connectionline extends Myobject {
         this.h = y2 - y1 ;
     }
 
-    public Point getport(int i){
-        return port[i] ;
+    public Point getport( String direction ){
+        
+        return null ;
     };
     
 }

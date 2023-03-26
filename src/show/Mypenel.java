@@ -1,13 +1,24 @@
 package show;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import java.awt.BasicStroke;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
@@ -77,7 +88,7 @@ public class Mypenel extends JPanel {
 
         if (selectarea)
             paintselectarea(g2d);
-        System.out.println(selectobj.size());
+        
         
     }
 
@@ -140,5 +151,20 @@ public class Mypenel extends JPanel {
         g.fillRect(selectareapoint[0].x, selectareapoint[0].y, w, h);
         g.setColor(new Color(168, 167, 255, 205));
         g.drawRect(selectareapoint[0].x, selectareapoint[0].y, w, h);
+    }
+
+    public static void rename() {
+        JTextField textArea = new JTextField(selectobj.get(0).name);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        Object[] options = {"OK", "Cancel"};
+        int choice = JOptionPane.showOptionDialog(null, scrollPane, "Enter your text",
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
+        if (choice == JOptionPane.OK_OPTION) {
+            selectobj.get(0).name = textArea.getText();
+            System.out.println("Change to: " + selectobj.get(0).name);
+            refresh();
+        }
+        
+        
     }
 }
