@@ -1,9 +1,0 @@
-MouseClicked：當滑鼠按下並釋放時發生。常用於處理單擊事件。
-MouseDragged：當滑鼠按下並拖動時發生。常用於實現拖放操作。
-MouseEntered：當滑鼠進入一個組件的範圍內時發生。常用於實現提示訊息。
-MouseExited：當滑鼠離開一個組件的範圍時發生。常用於實現提示訊息。
-MouseMotionEvent：滑鼠移動事件的基礎事件，包括 MouseDragged 和 MouseMoved。
-MouseMoved：當滑鼠在組件內移動時發生。常用於實現滑鼠移動時的即時反應。
-MousePressed：當滑鼠按下時發生。常用於實現滑鼠拖動或其他操作。
-MouseReleased：當滑鼠釋放時發生。常用於實現滑鼠拖動或其他操作。
-MouseWheelMoved：當滑鼠滾輪滾動時發生。常用於實現滾輪滾動時的反應，例如捲動文本或圖像。

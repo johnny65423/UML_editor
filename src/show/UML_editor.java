@@ -26,7 +26,7 @@ public class UML_editor extends JFrame {
 
 
 
-        this.setTitle("UML_Editor");
+        this.setTitle("UML_Editor_111522050");
 		this.setSize(1000, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
