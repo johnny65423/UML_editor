@@ -6,6 +6,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import objects.Composite;
+import objects.Myobject;
+
 
 
 public class MymenuBar extends JMenuBar{
@@ -38,7 +41,12 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("GroupOnclick");
+            if ( Mypenel.getselectobj().size() > 1 ) {
+                System.out.println("GroupOnclick");
+                Myobject group = new Composite() ;
+                Mypenel.addobject(group, group.getindex() );
+            }
+
         }
 
 

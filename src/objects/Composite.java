@@ -1,23 +1,50 @@
 package objects;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
+
+import show.Mypenel;
+
 import java.awt.Point;
 import java.util.ArrayList;
 
 public class Composite extends Myobject {
     private List<Myobject> groupobjlist = new ArrayList<Myobject>() ;
-
+    private int target ; 
     public Composite() {
         this.name = "composite" ;
+        this.target = -1 ;
+        this.collectobj();
+        this.setposition(null);
     }
     
     public void setposition( Point p ) {
-        this.x1 = p.x - 10 ;
-        this.x2 = p.x + w + 10 ;
-        this.y1 = p.y - 10 ;
-        this.y2 = p.y + h + 10 ;
+        this.x1 = groupobjlist.get(0).x1 ;
+        this.x2 = groupobjlist.get(0).x2 ;
+        this.y1 = groupobjlist.get(0).y1 ;
+        this.y2 = groupobjlist.get(0).y2 ;
 
+        for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
+            Myobject temp = groupobjlist.get(i) ;
+            this.x1 = Math.min(this.x1, temp.x1) ;
+            this.x2 = Math.max(this.x2, temp.x2) ;
+            this.y1 = Math.min(this.y1, temp.y1) ;
+            this.y2 = Math.max(this.y2, temp.y2) ;
+        }
+
+        this.x1 -= 10 ;
+        this.x2 += 10 ;
+        this.y1 -= 10 ;
+        this.y2 += 10 ;
+        this.w = this.x2 - this.x1 ;
+        this.h = this.y2 - this.y1 ;
+    }
+
+    public String ison( Point p ) {
+        if ( x1 <= p.x && p.x <= x2 && y1 <= p.y && p.y <= y2 )
+            return "in" ;
+        return "out" ;
     }
 
     public void move( Point p ) {
@@ -25,6 +52,10 @@ public class Composite extends Myobject {
         this.x2 = p.x + w + 10 ;
         this.y1 = p.y - 10 ;
         this.y2 = p.y + h + 10 ;
+
+        for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
+            groupobjlist.get(i).move(p);
+        }
     }
 
     public void paintobj(Graphics g) {
@@ -32,10 +63,31 @@ public class Composite extends Myobject {
     }
 
     public void paintselect( Graphics g ) {
-        System.out.println("group select.");
+        g.setColor(new Color(227, 235, 152, 150));
+        g.fillRect(x1, y1, w, h);
+        g.setColor(new Color(227, 235, 152, 255));
+        g.drawRect(x1, y1, w, h);
+        g.setColor(Color.BLACK);
+        for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
+            groupobjlist.get(i).paintselect(g);
+        }
     }
 
     public Point getport( String direction ){
         return null ;
     };
+
+    public int getindex() {
+        return target ;
+    }
+
+    private void collectobj() {
+        List<Myobject> temp = Mypenel.getselectobj() ;
+        for( int i = 0 ; i < temp.size() ; i++ ) {
+            temp.get(i).undergroup = true ;
+            groupobjlist.add(temp.get(i));
+            target = Math.max(target, Mypenel.getobjlist().indexOf(temp.get(i)));
+        }
+
+    }
 }

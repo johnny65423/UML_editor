@@ -10,9 +10,13 @@ public abstract class Myobject {
     protected int w, h ;
     public String name ;
     protected Point center ;
+    public boolean undergroup = false ;
     public abstract void paintobj( Graphics g ) ;
     public abstract void paintselect( Graphics g ) ;
     public abstract Point getport( String direction ) ;
+    public int getindex() {
+        return -1 ;
+    }
     public String ison( Point p ) {
         if ( getarea(x1, y1, x2, y1).contains(p) )
             return "up" ;
@@ -26,7 +30,7 @@ public abstract class Myobject {
         return "out" ;
     }
     public boolean inside( Point p1, Point p2 ) {
-        if ( p1.x <= x1 && p2.x >= x2 && p1.y <= y1 && p2.y >= y2 )
+        if ( p1.x <= x1 && p2.x >= x2 && p1.y <= y1 && p2.y >= y2 && !undergroup )
             return true ;
         return false ;
 

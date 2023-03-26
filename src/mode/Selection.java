@@ -35,8 +35,10 @@ public class Selection extends Mymode {
 			Mypenel.refresh() ;
 		}
 	}
+	
     public void mouseReleased(MouseEvent e) {
 	}
+
 	public void mouseDragged(MouseEvent e) {
 		if ( start == null ) {
 			List<Myobject> temp = Mypenel.getselectobj() ;

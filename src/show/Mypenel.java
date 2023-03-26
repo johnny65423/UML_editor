@@ -1,12 +1,9 @@
 package show;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import java.awt.BasicStroke;
@@ -64,13 +61,19 @@ public class Mypenel extends JPanel {
         // System.out.println("added" + objlist.size());
     }
 
+    public static void addobject( Myobject obj, int index ) {
+        objlist.add(index + 1, obj);
+        mypenel.repaint();
+
+    }
+
     public void paint( Graphics g ) {
         Graphics2D g2d = (Graphics2D) g;
 
         g2d.setStroke(new BasicStroke(2));
         g2d.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
         // System.out.println("123"+objlist.size());
-        g2d.setColor(Color.LIGHT_GRAY);
+        g2d.setColor(new Color( 200, 200, 200 ));
 		g2d.fillRect(0,0,getSize().width,getSize().height);
         g2d.setColor(Color.BLACK);
         
@@ -142,7 +145,7 @@ public class Mypenel extends JPanel {
         }
     }
 
-    private void paintselectarea( Graphics2D g ) {
+    private void paintselectarea( Graphics g ) {
 
         int w = selectareapoint[1].x - selectareapoint[0].x;
         int h = selectareapoint[1].y - selectareapoint[0].y;
