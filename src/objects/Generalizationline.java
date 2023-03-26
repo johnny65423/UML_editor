@@ -24,7 +24,6 @@ public class Generalizationline extends Connectionline {
         double vx = w/len, vy = h/len ;
         double rvx = vx * Math.cos(angle) - vy* Math.sin(angle) ;
         double rvy = vx * Math.sin(angle) + vy * Math.cos(angle) ;
-        //g.drawLine(x2, y2, (int)(x2 + 20*rvx), (int)(y2 + 20*rvy));
         pointx[0] = (int)(x2 + 20*rvx) ;
         pointy[0] = (int)(y2 + 20*rvy) ;
 
@@ -33,7 +32,6 @@ public class Generalizationline extends Connectionline {
         vy = h/len ;
         rvx = vx * Math.cos(angle) - vy* Math.sin(angle) ;
         rvy = vx * Math.sin(angle) + vy * Math.cos(angle) ;
-        //g.drawLine(x2, y2, (int)(x2 + 20*rvx), (int)(y2 + 20*rvy));
         pointx[1] = (int)(x2 + 20*rvx) ;
         pointy[1] = (int)(y2 + 20*rvy) ;
         pointx[2] = (int)x2 ;

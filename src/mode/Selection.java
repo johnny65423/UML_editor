@@ -46,7 +46,6 @@ public class Selection extends Mymode {
 			if ( templist.size() > 0 ) {
 				Myobject temp = templist.get(0) ;
 				temp.move( new Point( e.getX() - gap.x, e.getY() - gap.y) ) ;
-	
 			}
 		} 
 		else {
