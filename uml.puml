@@ -1,0 +1,32 @@
+@startuml
+
+class Editor {
+    +a()
+    +b()
+}
+
+class Toolbar {
+    +a()
+    +b()
+}
+
+class Menubar {
+    +a()
+    +b()
+}
+
+class r12 {
+    +a()
+    +b()
+}
+
+class Panel {
+    +a()
+    +b()
+}
+
+Editor --> Toolbar
+Editor --> Menubar
+Editor --> Panel
+
+@enduml
