@@ -1,32 +1,120 @@
 @startuml
 
-class Editor {
-    +a()
-    +b()
+class UML_editor {
+    - menu : MymenuBar 
+    - penel : Mypenel
+    - toolbar : Mytoolbar
 }
 
-class Toolbar {
-    +a()
-    +b()
+class MymenuBar {
+    + MymenuBar()
+
 }
 
-class Menubar {
-    +a()
-    +b()
+class GroupOnclick {
+
 }
 
-class r12 {
-    +a()
-    +b()
+class UngroupOnclick {
+    
 }
 
-class Panel {
-    +a()
-    +b()
+class RenameOnclick {
+    
 }
 
-Editor --> Toolbar
-Editor --> Menubar
-Editor --> Panel
+GroupOnclick --* MymenuBar
+UngroupOnclick --* MymenuBar
+RenameOnclick --* MymenuBar
+
+class Mytoolbar {
+
+
+}
+
+class ToolButton {
+    -clickedbtn : ToolButton
+    # buttonmode : Mymode
+    +ToolButton()
+    -setclickbtn() : void
+}
+
+Mytoolbar *-- ToolButton
+
+class Mymode {
+    + mousePressed :void
+    + mouseReleased :void
+    + mouseDragged :void
+
+}
+
+class Selection
+class Createassociation
+class Creategeneralization
+class Createcomposition
+class Createclass
+class Createusecase
+
+Mymode <|-- Selection
+Mymode <|-- Createassociation
+Mymode <|-- Creategeneralization
+Mymode <|-- Createcomposition
+Mymode <|-- Createclass
+Mymode <|-- Createusecase
+
+ToolButton --> Mymode
+
+class Myobject {
+    - position : int[]
+    + paint : void
+    + name : String
+    + checkPos : boolean
+    + getArea : point[]
+}
+
+class Basicobject
+class Classobject
+class Usecaseobject
+
+class Lineobject
+class Associationline
+class Compositionline
+class Generalizationline
+
+class selectarea
+class group {
+    - objlist : List<Myobject>
+}
+
+Myobject <|-- Basicobject
+Myobject <|-- Lineobject
+Myobject <|-- selectarea
+Myobject <|-- group
+
+Basicobject <|-- Classobject
+Basicobject <|-- Usecaseobject
+Lineobject <|-- Associationline
+Lineobject <|-- Compositionline
+Lineobject <|-- Generalizationline
+
+class Mypenel {
+    - myPenel : Mypenel
+    - chooseMode : Mymode
+    - objList : List<Myobject> 
+    - selectArea : Myobject
+    + Mypenel()
+    + setMode : void
+    + addObject : void
+    + paint : void
+    + rename : void
+
+}
+
+UML_editor --> MymenuBar
+UML_editor --> Mytoolbar
+UML_editor --> Mypenel
+
+Mypenel --> Myobject
+Mymode --> Myobject
 
 @enduml
