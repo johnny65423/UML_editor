@@ -7,6 +7,7 @@ import java.awt.Point;
 public class Usecaseobject extends Basicobject {
 
     public Usecaseobject(int x, int y){
+		super();
 		this.name = "UsecaseObj";
 		this.w = 120;
 		this.h = 75;

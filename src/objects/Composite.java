@@ -17,10 +17,10 @@ public class Composite extends Myobject {
         this.name = "_composite***" ;
         this.target = -1 ;
         this.collectobj();
-        this.setposition(null);
+        this.initPosition(null);
     }
     
-    public void setposition( Point p ) {
+    private void initPosition( Point p ) {
         this.x1 = groupobjlist.get(0).x1 ;
         this.x2 = groupobjlist.get(0).x2 ;
         this.y1 = groupobjlist.get(0).y1 ;
@@ -57,7 +57,14 @@ public class Composite extends Myobject {
         return "out" ;
     }
 
-    public void move( Point p ) {
+    public boolean inside( Point p1, Point p2 ) {
+        if ( p1.x <= x1 && p2.x >= x2 && p1.y <= y1 && p2.y >= y2 && !undergroup )
+            return true ;
+        return false ;
+
+    } 
+
+    public void setposition( Point p ) {
         this.x1 = p.x ;
         this.x2 = p.x + w ;
         this.y1 = p.y ;
@@ -68,7 +75,7 @@ public class Composite extends Myobject {
             // int[] arr = temp.getloc() ;
             // Point gap = new Point(this.x1 -arr[0] , this.y1 - arr[1] ) ;
             // System.out.println(""+( gap.x)+" "+(gap.y));
-            temp.move(new Point( this.x1+objgaplist.get(i).x, this.y1+objgaplist.get(i).y ));
+            temp.setposition(new Point( this.x1+objgaplist.get(i).x, this.y1+objgaplist.get(i).y ));
         }
 
 

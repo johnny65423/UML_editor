@@ -29,8 +29,8 @@ public class Mypenel extends JPanel {
     private static boolean selectarea = false ;
     private static Point[] selectareapoint = new Point[2] ;
 
-    private Mypenel() { // from ChatGPT
-        // this.setToolTipText("penel"); 
+    private Mypenel() {
+
     }
     
     public static Mypenel getmypenel() {

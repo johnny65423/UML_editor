@@ -12,15 +12,9 @@ public abstract class Connectionline extends Myobject {
     public void setposition( Point p ) {
         ;
     }
-
-    public void move( Point p ) {
-        ;
-    }
     
-    @Override
     public String ison(Point p){
         return "out" ;
-
     }
 
     public boolean inside( Point p1, Point p2 ) {

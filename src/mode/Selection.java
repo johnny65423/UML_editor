@@ -45,7 +45,7 @@ public class Selection extends Mymode {
 			List<Myobject> templist = Mypenel.getselectobj() ;
 			if ( templist.size() > 0 ) {
 				Myobject temp = templist.get(0) ;
-				temp.move( new Point( e.getX() - gap.x, e.getY() - gap.y) ) ;
+				temp.setposition( new Point( e.getX() - gap.x, e.getY() - gap.y) ) ;
 			}
 		} 
 		else {

@@ -9,6 +9,7 @@ public class Classobject extends Basicobject {
 	private int gridsize ;
 
     public Classobject(int x, int y){
+		super();
 		this.name = "ClassObj";
 		this.w = 90;
 		this.h = 90;
