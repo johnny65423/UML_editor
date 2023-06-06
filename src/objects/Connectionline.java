@@ -9,7 +9,8 @@ public abstract class Connectionline extends Myobject {
 
     public abstract void paintobj(Graphics g) ;
     public void setposition( Point p ) {
-        ;
+        port[1].x = p.x ;
+        port[1].y = p.y ;
     }
     
     public String ison(Point p){

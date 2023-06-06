@@ -25,7 +25,6 @@ public class Mypenel extends JPanel {
     private Mymode choosemode ;
     private List<Myobject> objlist = new ArrayList<Myobject>() ;
     private List<Myobject> selectobj = new ArrayList<Myobject>() ;
-    private Myobject templine = null ;
     private boolean selectarea = false ;
     private Point[] selectareapoint = new Point[2] ;
 
@@ -51,16 +50,21 @@ public class Mypenel extends JPanel {
     } 
 
     public void addobject( Myobject obj ) {
-        // System.out.println("add" + objlist.size());
-        objlist.add(obj);
+        if ( !objlist.contains( obj ) )
+            objlist.add(obj);
         mypenel.repaint();
-        // System.out.println("added" + objlist.size());
     }
 
     public void addobject( Myobject obj, int index ) {
-        objlist.add(index + 1, obj);
+        if ( !objlist.contains( obj ) )
+            objlist.add(index + 1, obj);
         mypenel.repaint();
 
+    }
+
+    public void removeobject( Myobject obj ) {
+        objlist.remove(obj);
+        mypenel.repaint();
     }
 
     public void paint( Graphics g ) {
@@ -79,10 +83,6 @@ public class Mypenel extends JPanel {
             if ( selectobj.contains(objlist.get(i)) )
                 objlist.get(i).paintselect(g2d);
         }
-        //if (selectobj != null)
-        //    selectobj.paintselect(g2d);
-        if (templine !=  null)
-            templine.paintobj(g2d);
 
         if (selectarea)
             paintselectarea(g2d);
@@ -108,10 +108,6 @@ public class Mypenel extends JPanel {
 
     public List<Myobject> getselectobj() {
         return selectobj ;
-    }
-
-    public void settempline( Myobject l ) {
-        templine = l ;
     }
 
     public List<Myobject> getobjlist() {

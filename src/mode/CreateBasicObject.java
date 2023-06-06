@@ -3,7 +3,6 @@ package mode;
 import java.awt.event.MouseEvent;
 
 import objects.ObjectFactory;
-import show.Mypenel;
 
 public class CreateBasicObject extends Mymode {
 

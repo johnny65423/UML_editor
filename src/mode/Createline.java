@@ -11,7 +11,7 @@ import objects.ObjectFactory;
 public class CreateLine extends Mymode {
     private Point start, end ;
     private int thisindex ;
-
+	private Myobject tempLine ;
     
     public CreateLine( String type ) {
 		super();
@@ -57,20 +57,27 @@ public class CreateLine extends Mymode {
 				
 			}
 	
-			mypenel.settempline(null);
+			mypenel.removeobject(tempLine);
 			if (find) 
 				mypenel.addobject( ObjectFactory.createObject( this.name, start, end ) );
 			mypenel.refresh() ;
 			start = null ;
 			end = null ;
+			tempLine = null ;
 		}
 		
 	}
 	public void mouseDragged(MouseEvent e) {
 		if (start != null) {
 			// System.out.println("drag...");
-			Myobject temp = ObjectFactory.createObject( this.name, start,  e.getPoint()) ;
-			mypenel.settempline(temp);
+			if ( tempLine == null ) {
+				tempLine = ObjectFactory.createObject( this.name, start,  e.getPoint()) ;
+				mypenel.addobject( tempLine ) ;
+			}
+				
+			else 
+				tempLine.setposition(e.getPoint());
+			
 			mypenel.refresh();
 		}
 

@@ -5,11 +5,11 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 
 import objects.Myobject;
-import show.Mypenel;
 
 public class Selection extends Mymode {
 	private Point start ;
 	private Point gap ;
+	private Myobject selectarea ;
 
     public Selection() {
 		super() ;
