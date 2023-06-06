@@ -8,6 +8,7 @@ import javax.swing.JMenuItem;
 
 import objects.Composite;
 import objects.Myobject;
+import objects.ObjectFactory;
 
 
 
@@ -47,7 +48,7 @@ public class MymenuBar extends JMenuBar{
         public void actionPerformed(ActionEvent e) {
             if ( mypenel.getselectobj().size() > 1 ) {
                 System.out.println("GroupOnclick");
-                Myobject group = new Composite() ;
+                Myobject group = ObjectFactory.createObject("Composite", null, null) ;
                 mypenel.addobject(group, group.getindex() );
             }
 

@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 
 import objects.Myobject;
+import objects.ObjectFactory;
 
 public class Selection extends Mymode {
 	private Point start ;
@@ -50,7 +51,15 @@ public class Selection extends Mymode {
 			}
 		} 
 		else {
-			Point end = e.getPoint() ; 
+			Point end = e.getPoint() ;
+
+			if ( selectarea == null ) {
+				selectarea = ObjectFactory.createObject( "Area", start,  end) ;
+				mypenel.addobject( selectarea ) ;
+			}
+			else 
+				selectarea.setposition(e.getPoint());
+
 			mypenel.setselectarea( new Point( start ), new Point( end ) ) ;
 			mypenel.multiselect() ;
 		}

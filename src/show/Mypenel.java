@@ -72,11 +72,11 @@ public class Mypenel extends JPanel {
 
         g2d.setStroke(new BasicStroke(2));
         g2d.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-        // System.out.println("123"+objlist.size());
+
         g2d.setColor(new Color( 200, 200, 200 ));
 		g2d.fillRect(0,0,getSize().width,getSize().height);
-        g2d.setColor(Color.BLACK);
         
+        g2d.setColor(Color.BLACK);
 
         for ( int i = 0 ; i < objlist.size() ; i++ ) {
             objlist.get(i).paintobj(g2d);

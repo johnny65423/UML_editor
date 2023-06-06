@@ -16,6 +16,8 @@ public class ObjectFactory {
             return new Generalizationline(p1, p2) ;
         else if ( type == "Composite" )
             return new Composite() ;
+        else if ( type == "Area" )
+            return new Area(p1, p2) ;
 
         return null ;
 
