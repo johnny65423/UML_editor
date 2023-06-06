@@ -8,12 +8,13 @@ import show.Mypenel;
 public class CreateBasicObject extends Mymode {
 
 	public CreateBasicObject(String type) {
+		super();
 		this.name = type ;
 	}
 
     public void mousePressed( MouseEvent e ) {
         System.out.println("create " + this.name);
-		Mypenel.addobject( ObjectFactory.createObject( this.name, e.getPoint(), e.getPoint() ) );
+		mypenel.addobject( ObjectFactory.createObject( this.name, e.getPoint(), e.getPoint() ) );
 		
 	}
     public void mouseReleased(MouseEvent e) {

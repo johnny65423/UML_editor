@@ -22,12 +22,12 @@ import objects.*;
 
 public class Mypenel extends JPanel {
     private static Mypenel mypenel ;
-    private static Mymode choosemode ;
-    private static List<Myobject> objlist = new ArrayList<Myobject>() ;
-    private static List<Myobject> selectobj = new ArrayList<Myobject>() ;
-    private static Myobject templine = null ;
-    private static boolean selectarea = false ;
-    private static Point[] selectareapoint = new Point[2] ;
+    private Mymode choosemode ;
+    private List<Myobject> objlist = new ArrayList<Myobject>() ;
+    private List<Myobject> selectobj = new ArrayList<Myobject>() ;
+    private Myobject templine = null ;
+    private boolean selectarea = false ;
+    private Point[] selectareapoint = new Point[2] ;
 
     private Mypenel() {
 
@@ -40,7 +40,7 @@ public class Mypenel extends JPanel {
         return mypenel;
     }
 
-    public static void setmode(Mymode mode){
+    public void setmode(Mymode mode){
         System.out.println("change Mode");
         mypenel.removeMouseListener((MouseListener) choosemode);
         mypenel.removeMouseMotionListener((MouseMotionListener) choosemode);
@@ -50,14 +50,14 @@ public class Mypenel extends JPanel {
         
     } 
 
-    public static void addobject( Myobject obj ) {
+    public void addobject( Myobject obj ) {
         // System.out.println("add" + objlist.size());
         objlist.add(obj);
         mypenel.repaint();
         // System.out.println("added" + objlist.size());
     }
 
-    public static void addobject( Myobject obj, int index ) {
+    public void addobject( Myobject obj, int index ) {
         objlist.add(index + 1, obj);
         mypenel.repaint();
 
@@ -90,35 +90,35 @@ public class Mypenel extends JPanel {
         
     }
 
-    public static void refresh() {
+    public void refresh() {
         mypenel.revalidate();
         mypenel.repaint();
     }
 
-    public static void addselectobj( Myobject obj ) {
-        Mypenel.selectobj.add(obj) ;
+    public void addselectobj( Myobject obj ) {
+        selectobj.add(obj) ;
     }
 
-    public static void popselectobj() {
-        while ( Mypenel.selectobj.size() > 0 )
-            Mypenel.selectobj.remove( Mypenel.selectobj.size() - 1 ) ;
+    public void popselectobj() {
+        while ( selectobj.size() > 0 )
+            selectobj.remove( selectobj.size() - 1 ) ;
         
         selectarea = false ;
     }
 
-    public static List<Myobject> getselectobj() {
-        return Mypenel.selectobj ;
+    public List<Myobject> getselectobj() {
+        return selectobj ;
     }
 
-    public static void settempline( Myobject l ) {
-        Mypenel.templine = l ;
+    public void settempline( Myobject l ) {
+        templine = l ;
     }
 
-    public static List<Myobject> getobjlist() {
+    public List<Myobject> getobjlist() {
         return objlist ;
     }
 
-    public static void setselectarea( Point p1, Point p2 ) {
+    public void setselectarea( Point p1, Point p2 ) {
         selectarea = true ;
         int x1, y1, x2, y2 ;
         x1 = Math.min(p1.x, p2.x);
@@ -129,7 +129,7 @@ public class Mypenel extends JPanel {
         selectareapoint[1] = new Point(x2, y2) ;
     }
 
-    public static void multiselect() {
+    public void multiselect() {
         for ( int i = 0 ; i < objlist.size() ; i++ ) {
             if ( !selectobj.contains(objlist.get(i)) && objlist.get(i).inside(selectareapoint[0], selectareapoint[1]) )
                 selectobj.add( objlist.get(i) ) ;
@@ -151,7 +151,7 @@ public class Mypenel extends JPanel {
         g.drawRect(selectareapoint[0].x, selectareapoint[0].y, w, h);
     }
 
-    public static void rename() {
+    public void rename() {
         if (selectobj.get(0).name != "_composite***" ) {
             JTextField textArea = new JTextField(selectobj.get(0).name);
             JScrollPane scrollPane = new JScrollPane(textArea);

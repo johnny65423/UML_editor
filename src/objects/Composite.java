@@ -13,11 +13,14 @@ public class Composite extends Myobject {
     private List<Myobject> groupobjlist = new ArrayList<Myobject>() ;
     private List<Point> objgaplist = new ArrayList<Point>() ;
     private int target ; 
+    private Mypenel mypenel ;
     public Composite() {
+        this.mypenel = Mypenel.getmypenel();
         this.name = "_composite***" ;
         this.target = -1 ;
         this.collectobj();
         this.initPosition(null);
+        
     }
     
     private void initPosition( Point p ) {
@@ -72,9 +75,6 @@ public class Composite extends Myobject {
 
         for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
             Myobject temp = groupobjlist.get(i) ;
-            // int[] arr = temp.getloc() ;
-            // Point gap = new Point(this.x1 -arr[0] , this.y1 - arr[1] ) ;
-            // System.out.println(""+( gap.x)+" "+(gap.y));
             temp.setposition(new Point( this.x1+objgaplist.get(i).x, this.y1+objgaplist.get(i).y ));
         }
 
@@ -105,11 +105,11 @@ public class Composite extends Myobject {
     }
 
     private void collectobj() {
-        List<Myobject> temp = Mypenel.getselectobj() ;
+        List<Myobject> temp = mypenel.getselectobj() ;
         for( int i = 0 ; i < temp.size() ; i++ ) {
             temp.get(i).undergroup = true ;
             groupobjlist.add(temp.get(i));
-            target = Math.max(target, Mypenel.getobjlist().indexOf(temp.get(i)));
+            target = Math.max(target, mypenel.getobjlist().indexOf(temp.get(i)));
         }
 
     }
@@ -123,7 +123,7 @@ public class Composite extends Myobject {
         while ( groupobjlist.size() > 0 )
             groupobjlist.remove( groupobjlist.size() - 1 ) ;
         while ( objgaplist.size() > 0 )
-        objgaplist.remove( objgaplist.size() - 1 ) ;
+            objgaplist.remove( objgaplist.size() - 1 ) ;
         return true ;
     }
     

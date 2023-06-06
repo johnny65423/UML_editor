@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 public class ToolButton extends JButton {
     // Mytoolbar toolbar ;
     private static ToolButton clickedbtn ;
+    private static Mypenel mypenel ;
     protected Mymode buttonmode ;
 
     ToolButton( String imgname, Mymode mode ) {
@@ -22,7 +23,7 @@ public class ToolButton extends JButton {
         System.out.println("Get image from : " + path);
         ImageIcon icon = new ImageIcon(path);
 
-
+        mypenel = Mypenel.getmypenel() ;
         this.setIcon(icon);
         this.setToolTipText(imgname);
         this.setFocusable(false);
@@ -41,9 +42,9 @@ public class ToolButton extends JButton {
         clickedbtn = temp ;
         temp.setBackground(Color.GRAY);
 
-        Mypenel.setmode(clickedbtn.buttonmode);
-        Mypenel.popselectobj();
-        Mypenel.refresh();
+        mypenel.setmode(clickedbtn.buttonmode);
+        mypenel.popselectobj();
+        mypenel.refresh();
     }
 
 

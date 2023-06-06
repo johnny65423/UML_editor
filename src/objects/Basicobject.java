@@ -9,6 +9,7 @@ import java.util.List;
 
 public abstract class Basicobject extends Myobject {
     public Point[] port = new Point[4] ;
+    protected Point center ;
     
     public Basicobject() {
         for ( int i = 0 ; i < port.length ; i++ )

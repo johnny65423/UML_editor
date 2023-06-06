@@ -4,8 +4,16 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import show.Mypenel;
+
 public abstract class Mymode implements MouseListener, MouseMotionListener {
     public String name ;
+	protected Mypenel mypenel ;
+
+	public Mymode() {
+		mypenel = Mypenel.getmypenel() ;
+	}
+
     public void mousePressed(MouseEvent e) {
 	}
 	public void mouseReleased(MouseEvent e) {

@@ -6,7 +6,6 @@ import java.util.List;
 
 import objects.Myobject;
 import objects.ObjectFactory;
-import show.Mypenel;
 
 
 public class CreateLine extends Mymode {
@@ -15,12 +14,13 @@ public class CreateLine extends Mymode {
 
     
     public CreateLine( String type ) {
+		super();
 		this.name = type ;
 	}
 
     public void mousePressed( MouseEvent e ) {
         // System.out.println("create association");
-		List<Myobject> temp = Mypenel.getobjlist() ;
+		List<Myobject> temp = mypenel.getobjlist() ;
 		boolean find = false ;
 
         
@@ -35,14 +35,14 @@ public class CreateLine extends Mymode {
 			}
 			if (!find) 
 				start = null ;
-			Mypenel.refresh() ;
+			mypenel.refresh() ;
 		}
 	}
 
     public void mouseReleased(MouseEvent e) {
 
 		if ( start != null ) {
-			List<Myobject> temp = Mypenel.getobjlist() ;
+			List<Myobject> temp = mypenel.getobjlist() ;
 			boolean find = false ;
 	
 			
@@ -57,10 +57,10 @@ public class CreateLine extends Mymode {
 				
 			}
 	
-			Mypenel.settempline(null);
+			mypenel.settempline(null);
 			if (find) 
-				Mypenel.addobject( ObjectFactory.createObject( this.name, start, end ) );
-			Mypenel.refresh() ;
+				mypenel.addobject( ObjectFactory.createObject( this.name, start, end ) );
+			mypenel.refresh() ;
 			start = null ;
 			end = null ;
 		}
@@ -70,8 +70,8 @@ public class CreateLine extends Mymode {
 		if (start != null) {
 			// System.out.println("drag...");
 			Myobject temp = ObjectFactory.createObject( this.name, start,  e.getPoint()) ;
-			Mypenel.settempline(temp);
-			Mypenel.refresh();
+			mypenel.settempline(temp);
+			mypenel.refresh();
 		}
 
 	}

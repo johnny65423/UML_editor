@@ -12,15 +12,16 @@ public class Selection extends Mymode {
 	private Point gap ;
 
     public Selection() {
+		super() ;
 		this.name = "Selection" ;
 	}
 
     public void mousePressed( MouseEvent e ) {
 		start = e.getPoint() ;
 		
-		List<Myobject> temp = Mypenel.getobjlist() ;
+		List<Myobject> temp = mypenel.getobjlist() ;
 		boolean find = false ;
-		Mypenel.popselectobj();
+		mypenel.popselectobj();
 		for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
 			String result = temp.get(i).ison( start )  ;
 			if ( result != "out" ) {
@@ -29,10 +30,10 @@ public class Selection extends Mymode {
 				find = true ;
 				gap = new Point( start.x -arr[0], start.y - arr[1] ) ;
 				start = null ;
-				Mypenel.addselectobj(temp.get(i));
+				mypenel.addselectobj(temp.get(i));
 			}
 
-			Mypenel.refresh() ;
+			mypenel.refresh() ;
 		}
 	}
 	
@@ -42,7 +43,7 @@ public class Selection extends Mymode {
 	public void mouseDragged(MouseEvent e) {
 		
 		if ( start == null ) {
-			List<Myobject> templist = Mypenel.getselectobj() ;
+			List<Myobject> templist = mypenel.getselectobj() ;
 			if ( templist.size() > 0 ) {
 				Myobject temp = templist.get(0) ;
 				temp.setposition( new Point( e.getX() - gap.x, e.getY() - gap.y) ) ;
@@ -50,12 +51,12 @@ public class Selection extends Mymode {
 		} 
 		else {
 			Point end = e.getPoint() ; 
-			Mypenel.setselectarea( new Point( start ), new Point( end ) ) ;
-			Mypenel.multiselect() ;
+			mypenel.setselectarea( new Point( start ), new Point( end ) ) ;
+			mypenel.multiselect() ;
 		}
 
 
-		Mypenel.refresh();
+		mypenel.refresh();
 	}
     
 } 

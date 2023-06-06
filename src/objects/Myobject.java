@@ -7,7 +7,6 @@ public abstract class Myobject {
     protected int x1, x2, y1, y2 ;
     protected int w, h ;
     public String name ;
-    protected Point center ;
     public boolean undergroup = false ;
     public abstract void paintobj( Graphics g ) ;
     public abstract void paintselect( Graphics g ) ;

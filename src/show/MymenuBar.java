@@ -12,7 +12,11 @@ import objects.Myobject;
 
 
 public class MymenuBar extends JMenuBar{
+    private Mypenel mypenel ;
+
     public MymenuBar() {
+        mypenel = Mypenel.getmypenel();
+
         JMenu file = new JMenu("file") ;
         JMenu edit = new JMenu("edit") ;
         JMenuItem temp = new JMenuItem("Group") ;
@@ -41,10 +45,10 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if ( Mypenel.getselectobj().size() > 1 ) {
+            if ( mypenel.getselectobj().size() > 1 ) {
                 System.out.println("GroupOnclick");
                 Myobject group = new Composite() ;
-                Mypenel.addobject(group, group.getindex() );
+                mypenel.addobject(group, group.getindex() );
             }
 
         }
@@ -60,11 +64,11 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if ( Mypenel.getselectobj().size() == 1 ) {
+            if ( mypenel.getselectobj().size() == 1 ) {
                 System.out.println("UngroupOnclick");
-                if ( Mypenel.getselectobj().get(0).ungroup() )
-                    Mypenel.getobjlist().remove(Mypenel.getselectobj().get(0));
-                Mypenel.refresh();
+                if ( mypenel.getselectobj().get(0).ungroup() )
+                    mypenel.getobjlist().remove(mypenel.getselectobj().get(0));
+                mypenel.refresh();
             }
             
         }
@@ -80,8 +84,8 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if ( Mypenel.getselectobj().size() == 1 )
-                Mypenel.rename();
+            if ( mypenel.getselectobj().size() == 1 )
+                mypenel.rename();
                 
         }
 
