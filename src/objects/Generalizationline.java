@@ -42,9 +42,5 @@ public class Generalizationline extends Connectionline {
         g.setColor(Color.BLACK);
         g.drawPolygon(pointx, pointy, 3 );
     }
-
-
-    public void paintselect(Graphics g) {
-        ;
-    }
+    
 }

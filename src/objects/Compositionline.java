@@ -48,9 +48,4 @@ public class Compositionline extends Connectionline {
 
     }
 
-
-    public void paintselect(Graphics g) {
-        ;
-    }
-
 }

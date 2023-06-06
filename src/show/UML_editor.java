@@ -35,6 +35,6 @@ public class UML_editor extends JFrame {
 
 	}
     public static void main(String[] args) throws Exception {
-        UML_editor form = new UML_editor();
+        new UML_editor();
     }
 }

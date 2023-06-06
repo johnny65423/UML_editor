@@ -33,10 +33,4 @@ public class Associationline extends Connectionline {
 
     }
 
-
-    public void paintselect(Graphics g) {
-        ;
-    }
-
-    
 }

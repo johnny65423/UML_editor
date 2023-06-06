@@ -8,7 +8,6 @@ public abstract class Connectionline extends Myobject {
 
 
     public abstract void paintobj(Graphics g) ;
-    public abstract void paintselect(Graphics g);
     public void setposition( Point p ) {
         ;
     }
@@ -47,5 +46,9 @@ public abstract class Connectionline extends Myobject {
         
         return null ;
     };
+
+    public void paintselect(Graphics g) {
+        ;
+    }
     
 }

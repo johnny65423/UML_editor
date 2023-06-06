@@ -1,8 +1,8 @@
 package objects;
 
+import java.awt.Point;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Point;
 
 public class Usecaseobject extends Basicobject {
 
@@ -17,7 +17,7 @@ public class Usecaseobject extends Basicobject {
 
 	public void paintobj( Graphics g ) {
 		//super.paintobj(g);
-        g.setColor(Color.WHITE);
+		g.setColor(Color.WHITE);
 		g.fillOval(x1, y1, w, h);
 		g.setColor(Color.BLACK);
 		g.drawOval(x1, y1, w, h);

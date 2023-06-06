@@ -13,11 +13,11 @@ public class Mytoolbar extends JToolBar {
 
         this.setLayout(new GridLayout(6, 1));
         this.add( new ToolButton("select", new Selection()));
-        this.add(new ToolButton("association", new Createassociation()));
-        this.add(new ToolButton("generalization", new Creategeneralization()));
-        this.add(new ToolButton("composition", new Createcomposition()));
-        this.add(new ToolButton("class", new Createclass()));
-        this.add(new ToolButton("use_case", new Createusecase()));
+        this.add(new ToolButton("association", new CreateLine( "Association" ) ) );
+        this.add(new ToolButton("generalization", new CreateLine("Generalization")));
+        this.add(new ToolButton("composition", new CreateLine("Composition")));
+        this.add(new ToolButton("Class", new CreateBasicObject("Class")));
+        this.add(new ToolButton("UseCase", new CreateBasicObject("UseCase")));
         this.setFloatable( false);
     }
 
