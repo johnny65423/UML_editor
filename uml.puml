@@ -12,15 +12,15 @@ class MymenuBar {
 }
 
 class GroupOnclick {
-
+    + GroupOnclick()
 }
 
 class UngroupOnclick {
-    
+    + UngroupOnclick()
 }
 
 class RenameOnclick {
-    
+    + RenameOnclick()
 }
 
 GroupOnclick --* MymenuBar
@@ -28,7 +28,7 @@ UngroupOnclick --* MymenuBar
 RenameOnclick --* MymenuBar
 
 class Mytoolbar {
-
+    -tooBtnList : List<ToolButton>
 
 }
 
@@ -36,24 +36,37 @@ class ToolButton {
     -clickedbtn : ToolButton
     # buttonmode : Mymode
     +ToolButton()
-    -setclickbtn() : void
+    -setClickBtn() : void
+    -ToolbtnOnclick() : ActionListener
 }
 
 Mytoolbar *-- ToolButton
 
 class Mymode {
-    + mousePressed :void
-    + mouseReleased :void
-    + mouseDragged :void
+    + mousePressed() :void
+    + mouseReleased() :void
+    + mouseDragged() :void
 
 }
 
-class Selection
-class Createassociation
-class Creategeneralization
-class Createcomposition
-class Createclass
-class Createusecase
+class Selection {
+    + Selection()
+}
+class Createassociation {
+    + Createassociation()
+}
+class Creategeneralization {
+    + Creategeneralization()
+}
+class Createcomposition {
+    + Createcomposition()
+}
+class Createclass {
+    + Createclass()
+}
+class Createusecase {
+    + Createusecase()
+}
 
 Mymode <|-- Selection
 Mymode <|-- Createassociation
@@ -67,35 +80,58 @@ ToolButton --> Mymode
 class Myobject {
     - position : int[]
     + paint : void
+    + isSelect : boolean
     + name : String
-    + checkPos : boolean
-    + getArea : point[]
+    + inOn() : boolean
+    + isInside() : 
+    - undergroup : boolean
+    - getArea() : Point[]
+    + getPort() : Point
+    + setPosition() : void
+    
 }
-
-class Basicobject
-class Classobject
-class Usecaseobject
-
-class Lineobject
-class Associationline
-class Compositionline
-class Generalizationline
-
-class selectarea
 class group {
     - objlist : List<Myobject>
+    - collectObj() : void
+}
+class BasicObject {
+    + BasicObject()
+}
+class ClassObject {
+    + ClassObject()
+}
+class UsecaseObject {
+    + UsecaseObject()
 }
 
-Myobject <|-- Basicobject
-Myobject <|-- Lineobject
-Myobject <|-- selectarea
-Myobject <|-- group
+class LineObject {
+    + LineObject()
+}
+class AssociationLine {
+    + AssociationLine()
+}
+class CompositionLine {
+    + CompositionLine()
+}
+class GeneralizationLine {
+    + GeneralizationLine()
+}
 
-Basicobject <|-- Classobject
-Basicobject <|-- Usecaseobject
-Lineobject <|-- Associationline
-Lineobject <|-- Compositionline
-Lineobject <|-- Generalizationline
+class selectArea{
+    + selectArea()
+}
+
+Myobject <|-- group
+Myobject <|-- BasicObject
+Myobject <|-- LineObject
+Myobject <|-- selectArea
+
+
+BasicObject <|-- ClassObject
+BasicObject <|-- UsecaseObject
+LineObject <|-- AssociationLine
+LineObject <|-- CompositionLine
+LineObject <|-- GeneralizationLine
 
 class Mypenel {
     - myPenel : Mypenel
@@ -103,10 +139,10 @@ class Mypenel {
     - objList : List<Myobject> 
     - selectArea : Myobject
     + Mypenel()
-    + setMode : void
-    + addObject : void
-    + paint : void
-    + rename : void
+    + setMode() : void
+    + addObject() : void
+    + paint() : void
+    + rename() : void
 
 }
 
@@ -116,5 +152,54 @@ UML_editor --> Mypenel
 
 Mypenel --> Myobject
 Mymode --> Myobject
+
+
+
+note left of ToolButton::setClickBtn
+設定目前選定的模式按鈕
+end note
+
+note right of Mypenel::setMode
+設定目前選定的模式按鈕
+end note
+note right of Mypenel::addObject
+插入新的物件進列表
+end note
+note right of Mypenel::paint
+繪畫所有列表中的物件
+end note
+note right of Mypenel::rename
+重新命名輸入的物件
+end note
+
+note right of group::collectObj
+集合並抓取所有選取物件到自己之下
+end note
+
+
+note left of Myobject::inOn
+檢查給訂做標是否位於物件之內
+end note
+note left of Myobject::isInside
+檢查給定選取區塊是否框住整個物件
+end note
+note left of Myobject::getArea
+獲取物件範圍
+end note
+note left of Myobject::getPort
+回傳給定方位的Port用於新畫線的連接
+end note
+note left of Myobject::setPosition
+更新位置
+end note
+note left of Mymode::mousePressed
+滑鼠按下時的操作
+end note
+note left of Mymode::mouseReleased
+滑鼠放開時的操作
+end note
+note left of Mymode::mouseDragged
+滑鼠拖曳時的操作
+end note
 
 @enduml
