@@ -19,16 +19,16 @@ public class CreateLine extends Mymode {
 	}
 
     public void mousePressed( MouseEvent e ) {
-		List<Myobject> temp = mypenel.getobjectList() ;
+		List<Myobject> temp = mypenel.getObjectList() ;
 		boolean find = false ;
 
         
 		for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
-			String result = temp.get(i).ison( e.getPoint() )  ;
+			String result = temp.get(i).isOn( e.getPoint() )  ;
 			if ( result != "out" && result != "group" ) {
 				System.out.println(result);
 				find = true ;
-				start = temp.get(i).getport(result) ;
+				start = temp.get(i).getPort(result) ;
 				thisindex = i ;
 				System.out.println("GET START");
 			}
@@ -41,24 +41,24 @@ public class CreateLine extends Mymode {
     public void mouseReleased(MouseEvent e) {
 
 		if ( start != null ) {
-			List<Myobject> temp = mypenel.getobjectList() ;
+			List<Myobject> temp = mypenel.getObjectList() ;
 			boolean find = false ;
 	
 			
 			for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
-				String result = temp.get(i).ison( e.getPoint() )  ;
+				String result = temp.get(i).isOn( e.getPoint() )  ;
 				if ( i != thisindex && result != "out" && result != "group" ) {
 					System.out.println(result);
 					find = true ;
-					end = temp.get(i).getport(result) ;
+					end = temp.get(i).getPort(result) ;
 				}
 				
 				
 			}
 	
-			mypenel.removeobject(tempLine);
+			mypenel.removeObject(tempLine);
 			if (find) 
-				mypenel.addobject( ObjectFactory.createObject( this.name, start, end ) );
+				mypenel.addObject( ObjectFactory.createObject( this.name, start, end ) );
 			mypenel.refresh() ;
 			start = null ;
 			end = null ;
@@ -71,11 +71,11 @@ public class CreateLine extends Mymode {
 			// System.out.println("drag...");
 			if ( tempLine == null ) {
 				tempLine = ObjectFactory.createObject( this.name, start,  e.getPoint()) ;
-				mypenel.addobject( tempLine ) ;
+				mypenel.addObject( tempLine ) ;
 			}
 				
 			else 
-				tempLine.setposition(e.getPoint());
+				tempLine.setPosition(e.getPoint());
 			
 			mypenel.refresh();
 		}

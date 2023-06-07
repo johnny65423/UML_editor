@@ -1,7 +1,7 @@
 package objects;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.List;
 
 import show.Mypenel;
@@ -15,7 +15,7 @@ public class Composite extends Myobject {
     private int target ; 
     private Mypenel mypenel ;
     public Composite() {
-        this.mypenel = Mypenel.getmypenel();
+        this.mypenel = Mypenel.getMyPenel();
         this.name = "_composite***" ;
         this.target = -1 ;
         this.collectobj();
@@ -54,7 +54,7 @@ public class Composite extends Myobject {
 
     }
 
-    public String ison( Point p ) {
+    public String isOn( Point p ) {
         if ( x1 <= p.x && p.x <= x2 && y1 <= p.y && p.y <= y2 )
             return "group" ;
         return "out" ;
@@ -67,7 +67,7 @@ public class Composite extends Myobject {
 
     } 
 
-    public void setposition( Point p ) {
+    public void setPosition( Point p ) {
         this.x1 = p.x ;
         this.x2 = p.x + w ;
         this.y1 = p.y ;
@@ -75,28 +75,28 @@ public class Composite extends Myobject {
 
         for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
             Myobject temp = groupobjlist.get(i) ;
-            temp.setposition(new Point( this.x1+objgaplist.get(i).x, this.y1+objgaplist.get(i).y ));
+            temp.setPosition(new Point( this.x1+objgaplist.get(i).x, this.y1+objgaplist.get(i).y ));
         }
 
 
     }
 
-    public void paintobj(Graphics g) {
+    public void paintObject(Graphics2D g) {
         ;
     }
 
-    public void paintselect( Graphics g ) {
+    public void paintSelect( Graphics2D g ) {
         g.setColor(new Color(227, 235, 152, 150));
         g.fillRect(x1, y1, w, h);
         g.setColor(new Color(227, 235, 152, 255));
         g.drawRect(x1, y1, w, h);
         g.setColor(Color.BLACK);
         for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
-            groupobjlist.get(i).paintselect(g);
+            groupobjlist.get(i).paintSelect(g);
         }
     }
 
-    public Point getport( String direction ){
+    public Point getPort( String direction ){
         return null ;
     };
 
@@ -105,11 +105,11 @@ public class Composite extends Myobject {
     }
 
     private void collectobj() {
-        List<Myobject> temp = mypenel.getselectobj() ;
+        List<Myobject> temp = mypenel.getSelectObject() ;
         for( int i = 0 ; i < temp.size() ; i++ ) {
             temp.get(i).undergroup = true ;
             groupobjlist.add(temp.get(i));
-            target = Math.max(target, mypenel.getobjectList().indexOf(temp.get(i)));
+            target = Math.max(target, mypenel.getObjectList().indexOf(temp.get(i)));
         }
 
     }

@@ -1,19 +1,16 @@
 package objects;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.util.List;
+import java.awt.Graphics2D;
+import java.awt.Point;
 
 import show.Mypenel;
-
-import java.awt.Point;
-import java.util.ArrayList;
 
 public class Area extends Myobject {
     private Mypenel mypenel ;
     Point start, end ;
     public Area( Point start, Point end ) {
-        this.mypenel = Mypenel.getmypenel();
+        this.mypenel = Mypenel.getMyPenel();
         this.name = "Area" ;
         this.start = new Point(start);
         x1 = Math.min(start.x, end.x);
@@ -24,7 +21,7 @@ public class Area extends Myobject {
         h = y2 - y1;
     }
 
-    public void paintobj(Graphics g) {
+    public void paintObject(Graphics2D g) {
         
 
         g.setColor(new Color(168, 167, 255, 102));
@@ -33,15 +30,15 @@ public class Area extends Myobject {
         g.drawRect(x1, y1, w, h);
     }
 
-    public void paintselect(Graphics g) {
+    public void paintSelect(Graphics2D g) {
         ;
     }
 
-    public Point getport(String direction) {
+    public Point getPort(String direction) {
         return null ;
     }
 
-    public String ison(Point p) {
+    public String isOn(Point p) {
         return "out" ;
     }
 
@@ -49,7 +46,7 @@ public class Area extends Myobject {
         return false ;
     }
 
-    public void setposition(Point point) {
+    public void setPosition(Point point) {
         x1 = Math.min(start.x, point.x);
         x2 = Math.max(start.x, point.x);
         y1 = Math.min(start.y, point.y);

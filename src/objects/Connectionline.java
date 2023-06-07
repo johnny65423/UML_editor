@@ -1,19 +1,19 @@
 package objects;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 
 public abstract class Connectionline extends Myobject {
     public Point[] port = new Point[2] ;
 
 
-    public abstract void paintobj(Graphics g) ;
-    public void setposition( Point p ) {
+    public abstract void paintObject(Graphics2D g) ;
+    public void setPosition( Point p ) {
         port[1].x = p.x ;
         port[1].y = p.y ;
     }
     
-    public String ison(Point p){
+    public String isOn(Point p){
         return "out" ;
     }
 
@@ -43,12 +43,12 @@ public abstract class Connectionline extends Myobject {
         this.h = y2 - y1 ;
     }
 
-    public Point getport( String direction ){
+    public Point getPort( String direction ){
         
         return null ;
     };
 
-    public void paintselect(Graphics g) {
+    public void paintSelect(Graphics2D g) {
         ;
     }
     

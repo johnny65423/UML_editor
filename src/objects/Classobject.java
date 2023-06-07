@@ -2,7 +2,7 @@ package objects;
 
 import java.awt.Point;
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Classobject extends Basicobject {
 
@@ -14,12 +14,12 @@ public class Classobject extends Basicobject {
 		this.w = 90;
 		this.h = 90;
 		this.gridsize = 30 ;
-		this.setposition(new Point(x,y));
+		this.setPosition(new Point(x,y));
 
 	}
 
-	public void paintobj( Graphics g ) {
-		//super.paintobj(g);
+	public void paintObject( Graphics2D g ) {
+		//super.paintObject(g);
 		g.setColor(Color.WHITE);
 		g.fillRect(x1, y1, w, h);
 		g.setColor(Color.BLACK);

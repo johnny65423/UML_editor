@@ -2,7 +2,7 @@ package objects;
 
 import java.awt.Point;
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Usecaseobject extends Basicobject {
 
@@ -11,12 +11,12 @@ public class Usecaseobject extends Basicobject {
 		this.name = "UsecaseObj";
 		this.w = 120;
 		this.h = 75;
-		this.setposition(new Point(x,y));
+		this.setPosition(new Point(x,y));
 
 	}
 
-	public void paintobj( Graphics g ) {
-		//super.paintobj(g);
+	public void paintObject( Graphics2D g ) {
+		//super.paintObject(g);
 		g.setColor(Color.WHITE);
 		g.fillOval(x1, y1, w, h);
 		g.setColor(Color.BLACK);

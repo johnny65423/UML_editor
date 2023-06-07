@@ -1,6 +1,6 @@
 package objects;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 
 public abstract class Myobject {
@@ -8,19 +8,19 @@ public abstract class Myobject {
     protected int w, h ;
     public String name ;
     public boolean undergroup = false ;
-    public abstract void paintobj( Graphics g ) ;
-    public abstract void paintselect( Graphics g ) ;
-    public abstract Point getport( String direction ) ;
+    public abstract void paintObject( Graphics2D g ) ;
+    public abstract void paintSelect( Graphics2D g ) ;
+    public abstract Point getPort( String direction ) ;
     public boolean ungroup() {
         return false;
     }
     public int getindex() {
         return -1 ;
     }
-    public abstract String ison( Point p ) ; 
+    public abstract String isOn( Point p ) ; 
 
     public abstract boolean inside( Point p1, Point p2 );
-    public abstract void setposition(Point point) ;
+    public abstract void setPosition(Point point) ;
     public int[] getloc() {
         int[] arr = new int[4];
         arr[0] = x1 ;

@@ -1,7 +1,7 @@
 package objects;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 
 public class Compositionline extends Connectionline {
@@ -13,7 +13,7 @@ public class Compositionline extends Connectionline {
         pointy = new int[4];
     }
 
-    public void paintobj(Graphics g) {
+    public void paintObject(Graphics2D g) {
         updateloc();
 
         g.setColor(Color.BLACK);

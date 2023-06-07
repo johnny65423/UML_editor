@@ -1,6 +1,6 @@
 package objects;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Area;
 import java.awt.geom.Path2D;
@@ -23,7 +23,7 @@ public abstract class Basicobject extends Myobject {
         return false ;
 
     } 
-    public void setposition( Point p ) {
+    public void setPosition( Point p ) {
         this.x1 = p.x ;
         this.x2 = p.x + w ;
         this.y1 = p.y ;
@@ -49,7 +49,7 @@ public abstract class Basicobject extends Myobject {
         this.center = new Point( (x1+x2)/2, (y1+y2)/2 ) ;
     }
 
-    public Point getport( String direction ) {
+    public Point getPort( String direction ) {
         int i = -1 ;
         if ( direction == "up" )
             i = 0 ;
@@ -63,7 +63,7 @@ public abstract class Basicobject extends Myobject {
         return port[i];
     }
 
-    public String ison( Point p ) {
+    public String isOn( Point p ) {
         if ( getarea(x1, y1, x2, y1).contains(p) )
             return "up" ;
         else if ( getarea(x1, y2, x2, y2).contains(p) )
@@ -76,9 +76,9 @@ public abstract class Basicobject extends Myobject {
         return "out" ;
     }
 
-    public abstract void paintobj( Graphics g ) ;
+    public abstract void paintObject( Graphics2D g ) ;
     
-    public void paintselect( Graphics g ) {
+    public void paintSelect( Graphics2D g ) {
         for ( int i = 0 ; i < 4 ; i++ ) {
             g.fillRect( this.port[i].x-5, this.port[i].y-5, 10, 10);
         }

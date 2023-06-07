@@ -19,19 +19,13 @@ public class UML_editor extends JFrame {
         this.toolbar = new Mytoolbar() ;
         this.getContentPane().add(this.toolbar, BorderLayout.WEST);
 
-        this.penel = Mypenel.getmypenel() ;
+        this.penel = Mypenel.getMyPenel() ;
         this.getContentPane().add(this.penel, BorderLayout.CENTER);
-
-        
-
-
 
         this.setTitle("UML_Editor_111522050");
 		this.setSize(1000, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
-
-        
 
 	}
     public static void main(String[] args) throws Exception {

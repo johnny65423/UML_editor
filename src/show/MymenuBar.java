@@ -6,17 +6,19 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import objects.Composite;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
 import objects.Myobject;
 import objects.ObjectFactory;
-
 
 
 public class MymenuBar extends JMenuBar{
     private Mypenel mypenel ;
 
     public MymenuBar() {
-        mypenel = Mypenel.getmypenel();
+        mypenel = Mypenel.getMyPenel();
 
         JMenu file = new JMenu("file") ;
         JMenu edit = new JMenu("edit") ;
@@ -46,10 +48,11 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if ( mypenel.getselectobj().size() > 1 ) {
+            if ( mypenel.getSelectObject().size() > 1 ) {
                 System.out.println("GroupOnclick");
                 Myobject group = ObjectFactory.createObject("Composite", null, null) ;
-                mypenel.addobject(group, group.getindex() );
+                mypenel.addObject(group, group.getindex() );
+                mypenel.addSelectObject(group);
             }
 
         }
@@ -65,10 +68,10 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if ( mypenel.getselectobj().size() == 1 ) {
+            if ( mypenel.getSelectObject().size() == 1 ) {
                 System.out.println("UngroupOnclick");
-                if ( mypenel.getselectobj().get(0).ungroup() )
-                    mypenel.getobjectList().remove(mypenel.getselectobj().get(0));
+                if ( mypenel.getSelectObject().get(0).ungroup() )
+                    mypenel.getObjectList().remove(mypenel.getSelectObject().get(0));
                 mypenel.refresh();
             }
             
@@ -85,9 +88,26 @@ public class MymenuBar extends JMenuBar{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if ( mypenel.getselectobj().size() == 1 )
-                mypenel.rename();
+
+            if ( mypenel.getSelectObject().size() == 1 )
+                rename( mypenel.getSelectObject().get(0) );
                 
+        }
+
+        private void rename( Myobject object ) {
+            if ( object.name != "_composite***" ) {
+                JTextField textArea = new JTextField(object.name);
+                JScrollPane scrollPane = new JScrollPane(textArea);
+                Object[] options = {"OK", "Cancel"};
+                int choice = JOptionPane.showOptionDialog(null, scrollPane, "Enter your text",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
+                if (choice == JOptionPane.OK_OPTION) {
+                    object.name = textArea.getText();
+                    System.out.println("Change to: " + object.name);
+                    mypenel.refresh();
+                }
+            }
+    
         }
 
 

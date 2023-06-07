@@ -1,7 +1,7 @@
 package objects;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 
 public class Associationline extends Connectionline {
@@ -10,7 +10,7 @@ public class Associationline extends Connectionline {
         super(start, end);
     }
 
-    public void paintobj(Graphics g) {
+    public void paintObject(Graphics2D g) {
         updateloc();
         
         g.setColor(Color.BLACK);

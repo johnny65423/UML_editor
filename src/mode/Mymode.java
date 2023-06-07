@@ -11,7 +11,7 @@ public abstract class Mymode implements MouseListener, MouseMotionListener {
 	protected Mypenel mypenel ;
 
 	public Mymode() {
-		mypenel = Mypenel.getmypenel() ;
+		mypenel = Mypenel.getMyPenel() ;
 	}
 
     public void mousePressed(MouseEvent e) {

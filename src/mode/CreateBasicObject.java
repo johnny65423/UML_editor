@@ -13,7 +13,7 @@ public class CreateBasicObject extends Mymode {
 
     public void mousePressed( MouseEvent e ) {
         System.out.println("create " + this.name);
-		mypenel.addobject( ObjectFactory.createObject( this.name, e.getPoint(), e.getPoint() ) );
+		mypenel.addObject( ObjectFactory.createObject( this.name, e.getPoint(), e.getPoint() ) );
 		
 	}
     public void mouseReleased(MouseEvent e) {

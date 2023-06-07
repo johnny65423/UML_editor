@@ -1,31 +1,28 @@
 package show ;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 import javax.swing.JButton;
-
-
-
-import mode.*;
 import javax.swing.ImageIcon;
-public class ToolButton extends JButton {
-    // Mytoolbar toolbar ;
-    private static ToolButton clickedbtn ;
-    private static Mypenel mypenel ;
-    protected Mymode buttonmode ;
 
-    ToolButton( String imgname, Mymode mode ) {
-        this.buttonmode = mode ;
-        // this.toolbar = Mytoolbar.getmytoolbar() ;
-        String path = "src/image/" + imgname + ".png" ;
+import mode.Mymode;
+
+public class ToolButton extends JButton {
+    private static ToolButton clickedButton ;
+    private static Mypenel mypenel ;
+    protected Mymode buttonMode ;
+
+    ToolButton( String imageName, Mymode mode ) {
+        this.buttonMode = mode ;
+        String path = "src/image/" + imageName + ".png" ;
         System.out.println("Get image from : " + path);
         ImageIcon icon = new ImageIcon(path);
 
-        mypenel = Mypenel.getmypenel() ;
+        mypenel = Mypenel.getMyPenel() ;
         this.setIcon(icon);
-        this.setToolTipText(imgname);
+        this.setToolTipText(imageName);
         this.setFocusable(false);
         this.setBackground(new Color(255, 255, 255));
         this.setBorderPainted(false);
@@ -35,15 +32,14 @@ public class ToolButton extends JButton {
     }
 
     public static void setclickbtn( ToolButton temp ) {
-        // System.out.println("setselectbtn");
-        if ( clickedbtn != null ) 
-            clickedbtn.setBackground(Color.WHITE); 
+        if ( clickedButton != null ) 
+            clickedButton.setBackground(Color.WHITE); 
 
-        clickedbtn = temp ;
+        clickedButton = temp ;
         temp.setBackground(Color.GRAY);
 
-        mypenel.setmode(clickedbtn.buttonmode);
-        mypenel.popselectobj();
+        mypenel.setMode(clickedButton.buttonMode);
+        mypenel.clearSelectObject();
         mypenel.refresh();
     }
 
