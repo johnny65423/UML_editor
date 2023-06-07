@@ -15,10 +15,10 @@ import objects.ObjectFactory;
 
 
 public class MymenuBar extends JMenuBar{
-    private Mypenel mypenel ;
+    private MyPenel mypenel ;
 
     public MymenuBar() {
-        mypenel = Mypenel.getMyPenel();
+        mypenel = MyPenel.getMyPenel();
 
         JMenu file = new JMenu("file") ;
         JMenu edit = new JMenu("edit") ;

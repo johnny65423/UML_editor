@@ -11,7 +11,7 @@ import mode.Mymode;
 
 public class ToolButton extends JButton {
     private static ToolButton clickedButton ;
-    private static Mypenel mypenel ;
+    private static MyPenel mypenel ;
     protected Mymode buttonMode ;
 
     ToolButton( String imageName, Mymode mode ) {
@@ -20,7 +20,7 @@ public class ToolButton extends JButton {
         System.out.println("Get image from : " + path);
         ImageIcon icon = new ImageIcon(path);
 
-        mypenel = Mypenel.getMyPenel() ;
+        mypenel = MyPenel.getMyPenel() ;
         this.setIcon(icon);
         this.setToolTipText(imageName);
         this.setFocusable(false);

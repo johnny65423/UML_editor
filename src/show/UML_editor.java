@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class UML_editor extends JFrame {
     private MymenuBar menu ;
     private Mytoolbar toolbar ;
-    private Mypenel penel ;
+    private MyPenel penel ;
 
     public UML_editor() {
         System.out.println("UML_editor constructor.");
@@ -19,7 +19,7 @@ public class UML_editor extends JFrame {
         this.toolbar = new Mytoolbar() ;
         this.getContentPane().add(this.toolbar, BorderLayout.WEST);
 
-        this.penel = Mypenel.getMyPenel() ;
+        this.penel = MyPenel.getMyPenel() ;
         this.getContentPane().add(this.penel, BorderLayout.CENTER);
 
         this.setTitle("UML_Editor_111522050");

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
 
-import show.Mypenel;
+import show.MyPenel;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ public class Composite extends Myobject {
     private List<Myobject> groupobjlist = new ArrayList<Myobject>() ;
     private List<Point> objgaplist = new ArrayList<Point>() ;
     private int target ; 
-    private Mypenel mypenel ;
+    private MyPenel mypenel ;
     public Composite() {
-        this.mypenel = Mypenel.getMyPenel();
+        this.mypenel = MyPenel.getMyPenel();
         this.name = "_composite***" ;
         this.target = -1 ;
         this.collectobj();

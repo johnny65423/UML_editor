@@ -15,57 +15,57 @@ import java.util.List;
 import mode.Mymode;
 import objects.Myobject;
 
-public class Mypenel extends JPanel {
-    private static Mypenel myPenel ;
+public class MyPenel extends JPanel {
+    private static MyPenel myPenel ;
     private Mymode chooseMode ;
     private List<Myobject> objectList = new ArrayList<Myobject>() ;
     private List<Myobject> selectObjectList = new ArrayList<Myobject>() ;
 
-    private Mypenel() {
+    private MyPenel() {
     }
     
-    public static Mypenel getMyPenel() {
+    public static MyPenel getMyPenel() {
         if (myPenel == null)
-            myPenel = new Mypenel();
+            myPenel = new MyPenel();
         return myPenel;
     }
 
     public void setMode(Mymode mode){
         System.out.println("change Mode");
-        myPenel.removeMouseListener((MouseListener) chooseMode);
-        myPenel.removeMouseMotionListener((MouseMotionListener) chooseMode);
+        removeMouseListener((MouseListener) chooseMode);
+        removeMouseMotionListener((MouseMotionListener) chooseMode);
         chooseMode = mode ;
-        myPenel.addMouseListener((MouseListener) chooseMode);
-        myPenel.addMouseMotionListener((MouseMotionListener) chooseMode);
+        addMouseListener((MouseListener) chooseMode);
+        addMouseMotionListener((MouseMotionListener) chooseMode);
 
     } 
 
     public void addObject( Myobject obj ) {
         if ( !objectList.contains( obj ) )
             objectList.add(obj);
-        myPenel.repaint();
+        repaint();
     }
 
     public void addObject( Myobject obj, int index ) {
         if ( !objectList.contains( obj ) )
             objectList.add(index + 1, obj);
-            myPenel.repaint();
+        repaint();
     }
 
     public void removeObject( Myobject obj ) {
         objectList.remove(obj);
-        myPenel.repaint();
+        repaint();
     }
 
     public void addSelectObject( Myobject obj ) {
         if ( !selectObjectList.contains( obj ) )
             selectObjectList.add(obj) ;
-        myPenel.repaint();
+        repaint();
     }
 
     public void removesSelectObject( Myobject obj ) {
         selectObjectList.remove(obj);
-        myPenel.repaint();
+        repaint();
     }
 
     public void paint( Graphics g ) {
