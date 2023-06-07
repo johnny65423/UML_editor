@@ -1,7 +1,7 @@
 package objects;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.util.List;
 
 import show.Mypenel;
@@ -81,11 +81,11 @@ public class Composite extends Myobject {
 
     }
 
-    public void paintObject(Graphics2D g) {
+    public void paintObject(Graphics g) {
         ;
     }
 
-    public void paintSelect( Graphics2D g ) {
+    public void paintSelect( Graphics g ) {
         g.setColor(new Color(227, 235, 152, 150));
         g.fillRect(x1, y1, w, h);
         g.setColor(new Color(227, 235, 152, 255));

@@ -1,6 +1,6 @@
 package objects;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Point;
 
 public abstract class Myobject {
@@ -8,8 +8,8 @@ public abstract class Myobject {
     protected int w, h ;
     public String name ;
     public boolean undergroup = false ;
-    public abstract void paintObject( Graphics2D g ) ;
-    public abstract void paintSelect( Graphics2D g ) ;
+    public abstract void paintObject( Graphics g ) ;
+    public abstract void paintSelect( Graphics g ) ;
     public abstract Point getPort( String direction ) ;
     public boolean ungroup() {
         return false;

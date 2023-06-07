@@ -1,16 +1,14 @@
 package objects;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Point;
 
 import show.Mypenel;
 
 public class Area extends Myobject {
-    private Mypenel mypenel ;
     Point start, end ;
     public Area( Point start, Point end ) {
-        this.mypenel = Mypenel.getMyPenel();
         this.name = "Area" ;
         this.start = new Point(start);
         x1 = Math.min(start.x, end.x);
@@ -21,7 +19,7 @@ public class Area extends Myobject {
         h = y2 - y1;
     }
 
-    public void paintObject(Graphics2D g) {
+    public void paintObject(Graphics g) {
         
 
         g.setColor(new Color(168, 167, 255, 102));
@@ -30,7 +28,7 @@ public class Area extends Myobject {
         g.drawRect(x1, y1, w, h);
     }
 
-    public void paintSelect(Graphics2D g) {
+    public void paintSelect(Graphics g) {
         ;
     }
 

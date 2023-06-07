@@ -1,13 +1,13 @@
 package objects;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Point;
 
 public abstract class Connectionline extends Myobject {
     public Point[] port = new Point[2] ;
 
 
-    public abstract void paintObject(Graphics2D g) ;
+    public abstract void paintObject(Graphics g) ;
     public void setPosition( Point p ) {
         port[1].x = p.x ;
         port[1].y = p.y ;
@@ -48,7 +48,7 @@ public abstract class Connectionline extends Myobject {
         return null ;
     };
 
-    public void paintSelect(Graphics2D g) {
+    public void paintSelect(Graphics g) {
         ;
     }
     

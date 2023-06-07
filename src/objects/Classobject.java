@@ -2,7 +2,7 @@ package objects;
 
 import java.awt.Point;
 import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 public class Classobject extends Basicobject {
 
@@ -18,7 +18,7 @@ public class Classobject extends Basicobject {
 
 	}
 
-	public void paintObject( Graphics2D g ) {
+	public void paintObject( Graphics g ) {
 		//super.paintObject(g);
 		g.setColor(Color.WHITE);
 		g.fillRect(x1, y1, w, h);

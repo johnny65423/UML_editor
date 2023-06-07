@@ -1,6 +1,6 @@
 package objects;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.geom.Area;
 import java.awt.geom.Path2D;
@@ -76,9 +76,9 @@ public abstract class Basicobject extends Myobject {
         return "out" ;
     }
 
-    public abstract void paintObject( Graphics2D g ) ;
+    public abstract void paintObject( Graphics g ) ;
     
-    public void paintSelect( Graphics2D g ) {
+    public void paintSelect( Graphics g ) {
         for ( int i = 0 ; i < 4 ; i++ ) {
             g.fillRect( this.port[i].x-5, this.port[i].y-5, 10, 10);
         }

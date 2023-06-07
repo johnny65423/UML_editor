@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -67,23 +68,21 @@ public class Mypenel extends JPanel {
         myPenel.repaint();
     }
 
-    public void paint( Graphics2D g ) {
+    public void paint( Graphics g ) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setStroke(new BasicStroke(2));
+        g2d.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
-        g.setStroke(new BasicStroke(2));
-        g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-
-        g.setColor(new Color( 200, 200, 200 ));
-		g.fillRect(0,0,getSize().width,getSize().height);
+        g2d.setColor(new Color( 200, 200, 200 ));
+		g2d.fillRect(0,0,getSize().width,getSize().height);
         
-        g.setColor(Color.BLACK);
+        g2d.setColor(Color.BLACK);
 
-        System.out.println(objectList.size());
         for ( int i = 0 ; i < objectList.size() ; i++ ) {
-            System.out.println(objectList.size());
+            objectList.get(i).paintObject(g2d);
             if ( selectObjectList.contains(objectList.get(i)) )
-                objectList.get(i).paintSelect(g);
-            else 
-                objectList.get(i).paintObject(g);
+                objectList.get(i).paintSelect(g2d);
+
         }
 
     }
