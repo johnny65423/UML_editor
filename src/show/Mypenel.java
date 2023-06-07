@@ -22,9 +22,10 @@ import objects.*;
 
 public class Mypenel extends JPanel {
     private static Mypenel mypenel ;
-    private Mymode choosemode ;
-    private List<Myobject> objlist = new ArrayList<Myobject>() ;
-    private List<Myobject> selectobj = new ArrayList<Myobject>() ;
+    private Mymode chooseMode ;
+    private List<Myobject> objectList = new ArrayList<Myobject>() ;
+    private List<Myobject> selectObject = new ArrayList<Myobject>() ;
+    private Myobject selectArea ;
     private boolean selectarea = false ;
     private Point[] selectareapoint = new Point[2] ;
 
@@ -41,29 +42,29 @@ public class Mypenel extends JPanel {
 
     public void setmode(Mymode mode){
         System.out.println("change Mode");
-        mypenel.removeMouseListener((MouseListener) choosemode);
-        mypenel.removeMouseMotionListener((MouseMotionListener) choosemode);
-        choosemode = mode ;
-        mypenel.addMouseListener((MouseListener) choosemode);
-        mypenel.addMouseMotionListener((MouseMotionListener) choosemode);
+        mypenel.removeMouseListener((MouseListener) chooseMode);
+        mypenel.removeMouseMotionListener((MouseMotionListener) chooseMode);
+        chooseMode = mode ;
+        mypenel.addMouseListener((MouseListener) chooseMode);
+        mypenel.addMouseMotionListener((MouseMotionListener) chooseMode);
         
     } 
 
     public void addobject( Myobject obj ) {
-        if ( !objlist.contains( obj ) )
-            objlist.add(obj);
+        if ( !objectList.contains( obj ) )
+            objectList.add(obj);
         mypenel.repaint();
     }
 
     public void addobject( Myobject obj, int index ) {
-        if ( !objlist.contains( obj ) )
-            objlist.add(index + 1, obj);
+        if ( !objectList.contains( obj ) )
+            objectList.add(index + 1, obj);
         mypenel.repaint();
 
     }
 
     public void removeobject( Myobject obj ) {
-        objlist.remove(obj);
+        objectList.remove(obj);
         mypenel.repaint();
     }
 
@@ -78,10 +79,10 @@ public class Mypenel extends JPanel {
         
         g2d.setColor(Color.BLACK);
 
-        for ( int i = 0 ; i < objlist.size() ; i++ ) {
-            objlist.get(i).paintobj(g2d);
-            if ( selectobj.contains(objlist.get(i)) )
-                objlist.get(i).paintselect(g2d);
+        for ( int i = 0 ; i < objectList.size() ; i++ ) {
+            objectList.get(i).paintobj(g2d);
+            if ( selectObject.contains(objectList.get(i)) )
+                objectList.get(i).paintselect(g2d);
         }
 
         if (selectarea)
@@ -96,22 +97,27 @@ public class Mypenel extends JPanel {
     }
 
     public void addselectobj( Myobject obj ) {
-        selectobj.add(obj) ;
+        selectObject.add(obj) ;
+    }
+
+    public void removeselectobject( Myobject obj ) {
+        selectObject.remove(obj);
+        mypenel.repaint();
     }
 
     public void popselectobj() {
-        while ( selectobj.size() > 0 )
-            selectobj.remove( selectobj.size() - 1 ) ;
+        while ( selectObject.size() > 0 )
+            selectObject.remove( selectObject.size() - 1 ) ;
         
         selectarea = false ;
     }
 
     public List<Myobject> getselectobj() {
-        return selectobj ;
+        return selectObject ;
     }
 
-    public List<Myobject> getobjlist() {
-        return objlist ;
+    public List<Myobject> getobjectList() {
+        return objectList ;
     }
 
     public void setselectarea( Point p1, Point p2 ) {
@@ -126,11 +132,11 @@ public class Mypenel extends JPanel {
     }
 
     public void multiselect() {
-        for ( int i = 0 ; i < objlist.size() ; i++ ) {
-            if ( !selectobj.contains(objlist.get(i)) && objlist.get(i).inside(selectareapoint[0], selectareapoint[1]) )
-                selectobj.add( objlist.get(i) ) ;
-            else if ( selectobj.contains(objlist.get(i)) && !objlist.get(i).inside(selectareapoint[0], selectareapoint[1]) )
-                selectobj.remove(objlist.get(i) ) ;
+        for ( int i = 0 ; i < objectList.size() ; i++ ) {
+            if ( !selectObject.contains(objectList.get(i)) && objectList.get(i).inside(selectareapoint[0], selectareapoint[1]) )
+                selectObject.add( objectList.get(i) ) ;
+            else if ( selectObject.contains(objectList.get(i)) && !objectList.get(i).inside(selectareapoint[0], selectareapoint[1]) )
+                selectObject.remove(objectList.get(i) ) ;
                 
 
         }
@@ -148,15 +154,15 @@ public class Mypenel extends JPanel {
     }
 
     public void rename() {
-        if (selectobj.get(0).name != "_composite***" ) {
-            JTextField textArea = new JTextField(selectobj.get(0).name);
+        if (selectObject.get(0).name != "_composite***" ) {
+            JTextField textArea = new JTextField(selectObject.get(0).name);
             JScrollPane scrollPane = new JScrollPane(textArea);
             Object[] options = {"OK", "Cancel"};
             int choice = JOptionPane.showOptionDialog(null, scrollPane, "Enter your text",
                     JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
             if (choice == JOptionPane.OK_OPTION) {
-                selectobj.get(0).name = textArea.getText();
-                System.out.println("Change to: " + selectobj.get(0).name);
+                selectObject.get(0).name = textArea.getText();
+                System.out.println("Change to: " + selectObject.get(0).name);
                 refresh();
             }
         }

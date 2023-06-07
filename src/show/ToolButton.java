@@ -19,7 +19,7 @@ public class ToolButton extends JButton {
     ToolButton( String imgname, Mymode mode ) {
         this.buttonmode = mode ;
         // this.toolbar = Mytoolbar.getmytoolbar() ;
-        String path = "src/images/" + imgname + ".png" ;
+        String path = "src/image/" + imgname + ".png" ;
         System.out.println("Get image from : " + path);
         ImageIcon icon = new ImageIcon(path);
 

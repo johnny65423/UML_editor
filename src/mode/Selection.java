@@ -20,7 +20,7 @@ public class Selection extends Mymode {
     public void mousePressed( MouseEvent e ) {
 		start = e.getPoint() ;
 		
-		List<Myobject> temp = mypenel.getobjlist() ;
+		List<Myobject> temp = mypenel.getobjectList() ;
 		boolean find = false ;
 		mypenel.popselectobj();
 		for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
@@ -39,6 +39,10 @@ public class Selection extends Mymode {
 	}
 	
     public void mouseReleased(MouseEvent e) {
+		mypenel.removeobject(selectarea);
+		mypenel.refresh() ;
+		start = null ;
+		selectarea = null ;
 	}
 
 	public void mouseDragged(MouseEvent e) {
@@ -58,14 +62,29 @@ public class Selection extends Mymode {
 				mypenel.addobject( selectarea ) ;
 			}
 			else 
-				selectarea.setposition(e.getPoint());
+				selectarea.setposition(end);
 
-			mypenel.setselectarea( new Point( start ), new Point( end ) ) ;
-			mypenel.multiselect() ;
+			// mypenel.setselectarea( new Point( start ), new Point( end ) ) ;
+			// mypenel.multiselect() ;
+			multipleSelect();
 		}
 
 
 		mypenel.refresh();
+	}
+
+	private void multipleSelect() {
+		List<Myobject> objectList = mypenel.getobjectList() ;
+		List<Myobject> selectObjectList = mypenel.getselectobj() ;
+		int[] arr = selectarea.getloc() ;
+		Point start = new Point(arr[0], arr[1]);
+		Point end = new Point(arr[2], arr[3]);
+		for ( int i = 0 ; i < objectList.size() ; i++ ) {
+            if ( !selectObjectList.contains(objectList.get(i)) && objectList.get(i).inside(start, end) )
+                mypenel.addselectobj(objectList.get(i)) ; 
+            else if ( selectObjectList.contains(objectList.get(i)) && !objectList.get(i).inside(start, end) )
+                mypenel.removeselectobject(objectList.get(i) ) ;
+        }
 	}
     
 } 

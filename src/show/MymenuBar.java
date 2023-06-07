@@ -68,7 +68,7 @@ public class MymenuBar extends JMenuBar{
             if ( mypenel.getselectobj().size() == 1 ) {
                 System.out.println("UngroupOnclick");
                 if ( mypenel.getselectobj().get(0).ungroup() )
-                    mypenel.getobjlist().remove(mypenel.getselectobj().get(0));
+                    mypenel.getobjectList().remove(mypenel.getselectobj().get(0));
                 mypenel.refresh();
             }
             

@@ -19,7 +19,7 @@ public class CreateLine extends Mymode {
 	}
 
     public void mousePressed( MouseEvent e ) {
-		List<Myobject> temp = mypenel.getobjlist() ;
+		List<Myobject> temp = mypenel.getobjectList() ;
 		boolean find = false ;
 
         
@@ -41,7 +41,7 @@ public class CreateLine extends Mymode {
     public void mouseReleased(MouseEvent e) {
 
 		if ( start != null ) {
-			List<Myobject> temp = mypenel.getobjlist() ;
+			List<Myobject> temp = mypenel.getobjectList() ;
 			boolean find = false ;
 	
 			

@@ -109,7 +109,7 @@ public class Composite extends Myobject {
         for( int i = 0 ; i < temp.size() ; i++ ) {
             temp.get(i).undergroup = true ;
             groupobjlist.add(temp.get(i));
-            target = Math.max(target, mypenel.getobjlist().indexOf(temp.get(i)));
+            target = Math.max(target, mypenel.getobjectList().indexOf(temp.get(i)));
         }
 
     }

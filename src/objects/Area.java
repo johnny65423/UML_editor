@@ -15,6 +15,7 @@ public class Area extends Myobject {
     public Area( Point start, Point end ) {
         this.mypenel = Mypenel.getmypenel();
         this.name = "Area" ;
+        this.start = new Point(start);
         x1 = Math.min(start.x, end.x);
         x2 = Math.max(start.x, end.x);
         y1 = Math.min(start.y, end.y);
