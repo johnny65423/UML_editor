@@ -19,7 +19,6 @@ public class CreateLine extends Mymode {
 	}
 
     public void mousePressed( MouseEvent e ) {
-        // System.out.println("create association");
 		List<Myobject> temp = mypenel.getobjlist() ;
 		boolean find = false ;
 
