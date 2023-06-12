@@ -1,4 +1,4 @@
-package objects;
+package object;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -7,16 +7,16 @@ import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Basicobject extends Myobject {
+public abstract class BasicObject extends Myobject {
     public Point[] port = new Point[4] ;
     protected Point center ;
     
-    public Basicobject() {
+    public BasicObject() {
         for ( int i = 0 ; i < port.length ; i++ )
             port[i] = null ;
     }
     
-    protected List<Connectionline> linelist = new ArrayList<Connectionline>() ;
+    protected List<ConnectionLine> linelist = new ArrayList<ConnectionLine>() ;
     public boolean inside( Point p1, Point p2 ) {
         if ( p1.x <= x1 && p2.x >= x2 && p1.y <= y1 && p2.y >= y2 && !undergroup )
             return true ;

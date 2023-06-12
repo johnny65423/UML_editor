@@ -1,9 +1,9 @@
-package objects;
+package object;
 
 import java.awt.Graphics;
 import java.awt.Point;
 
-public abstract class Connectionline extends Myobject {
+public abstract class ConnectionLine extends Myobject {
     public Point[] port = new Point[2] ;
 
 
@@ -22,7 +22,7 @@ public abstract class Connectionline extends Myobject {
         return false ;
     }
 
-    public Connectionline( Point start, Point end ) {
+    public ConnectionLine( Point start, Point end ) {
         this.name = "line" ;
         this.port[0] = start ;
         this.port[1] = end ;

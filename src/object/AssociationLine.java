@@ -1,12 +1,12 @@
-package objects;
+package object;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-public class Associationline extends Connectionline {
+public class AssociationLine extends ConnectionLine {
 
-    public Associationline( Point start, Point end ) {
+    public AssociationLine( Point start, Point end ) {
         super(start, end);
     }
 

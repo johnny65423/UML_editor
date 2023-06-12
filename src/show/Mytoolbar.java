@@ -6,9 +6,9 @@ import javax.swing.JToolBar;
 
 import mode.*;
 
-public class Mytoolbar extends JToolBar {
+public class MyToolbar extends JToolBar {
 
-    Mytoolbar() {
+    MyToolbar() {
         //clickedbtn = null ;
 
         this.setLayout(new GridLayout(6, 1));

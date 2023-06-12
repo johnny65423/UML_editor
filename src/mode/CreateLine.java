@@ -4,8 +4,8 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-import objects.Myobject;
-import objects.ObjectFactory;
+import object.Myobject;
+import object.ObjectFactory;
 
 
 public class CreateLine extends Mymode {

@@ -2,7 +2,7 @@ package mode;
 
 import java.awt.event.MouseEvent;
 
-import objects.ObjectFactory;
+import object.ObjectFactory;
 
 public class CreateBasicObject extends Mymode {
 

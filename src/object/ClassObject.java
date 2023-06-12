@@ -1,14 +1,14 @@
-package objects;
+package object;
 
 import java.awt.Point;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Classobject extends Basicobject {
+public class ClassObject extends BasicObject {
 
 	private int gridsize ;
 
-    public Classobject(int x, int y){
+    public ClassObject(int x, int y){
 		super();
 		this.name = "ClassObj";
 		this.w = 90;

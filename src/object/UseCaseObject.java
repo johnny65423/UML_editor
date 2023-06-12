@@ -1,12 +1,12 @@
-package objects;
+package object;
 
 import java.awt.Point;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Usecaseobject extends Basicobject {
+public class UseCaseObject extends BasicObject {
 
-    public Usecaseobject(int x, int y){
+    public UseCaseObject(int x, int y){
 		super();
 		this.name = "UsecaseObj";
 		this.w = 120;

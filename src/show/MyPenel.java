@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mode.Mymode;
-import objects.Myobject;
+import object.Myobject;
 
 public class MyPenel extends JPanel {
     private static MyPenel myPenel ;
@@ -77,7 +77,7 @@ public class MyPenel extends JPanel {
 		g2d.fillRect(0,0,getSize().width,getSize().height);
         
         g2d.setColor(Color.BLACK);
-
+        
         for ( int i = 0 ; i < objectList.size() ; i++ ) {
             objectList.get(i).paintObject(g2d);
             if ( selectObjectList.contains(objectList.get(i)) )

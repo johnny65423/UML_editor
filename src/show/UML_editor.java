@@ -4,8 +4,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 public class UML_editor extends JFrame {
-    private MymenuBar menu ;
-    private Mytoolbar toolbar ;
+    private MyMenuBar menu ;
+    private MyToolbar toolbar ;
     private MyPenel penel ;
 
     public UML_editor() {
@@ -13,10 +13,10 @@ public class UML_editor extends JFrame {
     
         this.setLayout(new BorderLayout());
         
-        this.menu = new MymenuBar();
+        this.menu = new MyMenuBar();
         this.setJMenuBar(menu);
 
-        this.toolbar = new Mytoolbar() ;
+        this.toolbar = new MyToolbar() ;
         this.getContentPane().add(this.toolbar, BorderLayout.WEST);
 
         this.penel = MyPenel.getMyPenel() ;

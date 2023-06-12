@@ -10,14 +10,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 
-import objects.Myobject;
-import objects.ObjectFactory;
+import object.Myobject;
+import object.ObjectFactory;
 
 
-public class MymenuBar extends JMenuBar{
+public class MyMenuBar extends JMenuBar{
     private MyPenel mypenel ;
 
-    public MymenuBar() {
+    public MyMenuBar() {
         mypenel = MyPenel.getMyPenel();
 
         JMenu file = new JMenu("file") ;
