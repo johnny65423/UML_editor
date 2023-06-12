@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import show.MyPenel;
+import shows.MyPenel;
 
 public class Area extends Myobject {
     Point start, end ;

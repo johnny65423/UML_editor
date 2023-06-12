@@ -1,4 +1,4 @@
-package show;
+package shows;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
