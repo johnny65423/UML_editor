@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
 
-import shows.MyPenel;
+import show.MyPenel;
 
 import java.awt.Point;
 import java.util.ArrayList;

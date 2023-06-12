@@ -1,4 +1,4 @@
-package shows ;
+package show ;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

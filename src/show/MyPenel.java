@@ -1,4 +1,4 @@
-package shows;
+package show;
 
 import javax.swing.JPanel;
 
