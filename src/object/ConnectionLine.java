@@ -46,7 +46,7 @@ public abstract class ConnectionLine extends Myobject {
     public Point getPort( String direction ){
         
         return null ;
-    };
+    }
 
     public void paintSelect(Graphics g) {
         ;

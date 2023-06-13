@@ -82,7 +82,10 @@ public class Composite extends Myobject {
     }
 
     public void paintObject(Graphics g) {
-        ;
+        g.setColor(new Color(230, 230, 230, 50));
+        g.fillRect(x1, y1, w, h);
+        g.setColor(new Color(230, 230, 230, 255));
+        g.drawRect(x1, y1, w, h);
     }
 
     public void paintSelect( Graphics g ) {
