@@ -117,8 +117,8 @@ public class Composite extends Myobject {
 
     }
 
-    public boolean ungroup() {
-        System.out.println("ungroup");
+    public boolean unGroup() {
+        System.out.println("unGroup");
 
         for( int i = 0 ; i < groupobjlist.size() ; i++ ) {
             groupobjlist.get(i).undergroup = false ;
@@ -129,5 +129,8 @@ public class Composite extends Myobject {
             objgaplist.remove( objgaplist.size() - 1 ) ;
         return true ;
     }
-    
+   
+    public void reName() {
+        System.out.println("Can not rename a Group.");
+    }
 }

@@ -18,7 +18,6 @@ public abstract class ConnectionLine extends Myobject {
     }
 
     public boolean inside( Point p1, Point p2 ) {
-        // System.out.println("line not inside.");
         return false ;
     }
 
@@ -50,6 +49,10 @@ public abstract class ConnectionLine extends Myobject {
 
     public void paintSelect(Graphics g) {
         ;
+    }
+
+    public void reName() {
+        System.out.println("Can not rename a Line.");
     }
     
 }

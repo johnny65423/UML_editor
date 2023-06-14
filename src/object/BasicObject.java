@@ -7,6 +7,10 @@ import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+
 public abstract class BasicObject extends Myobject {
     public Point[] port = new Point[4] ;
     protected Point center ;
@@ -64,13 +68,13 @@ public abstract class BasicObject extends Myobject {
     }
 
     public String isOn( Point p ) {
-        if ( getarea(x1, y1, x2, y1).contains(p) )
+        if ( getArea(x1, y1, x2, y1).contains(p) )
             return "up" ;
-        else if ( getarea(x1, y2, x2, y2).contains(p) )
+        else if ( getArea(x1, y2, x2, y2).contains(p) )
             return "down" ;
-        else if ( getarea(x1, y1, x1, y2).contains(p) )
+        else if ( getArea(x1, y1, x1, y2).contains(p) )
             return "left" ;
-        else if ( getarea(x2, y1, x2, y2).contains(p) )
+        else if ( getArea(x2, y1, x2, y2).contains(p) )
             return "right" ;
 
         return "out" ;
@@ -84,7 +88,7 @@ public abstract class BasicObject extends Myobject {
         }
     }
 
-    private Area getarea(int px1, int py1, int px2, int py2) {
+    private Area getArea(int px1, int py1, int px2, int py2) {
         Path2D path = new Path2D.Double();
         path.moveTo(center.getX(), center.getY());
         path.lineTo(px1, py1);
@@ -93,6 +97,16 @@ public abstract class BasicObject extends Myobject {
         return new Area(path);
     }
 
-
+    public void reName() {
+        JTextField textArea = new JTextField(name);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        Object[] options = {"OK", "Cancel"};
+        int choice = JOptionPane.showOptionDialog(null, scrollPane, "Enter your text",
+        JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
+        if (choice == JOptionPane.OK_OPTION) {
+            name = textArea.getText();
+            System.out.println("Change to: " + name);
+        }
+    }
 
 }

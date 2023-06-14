@@ -6,10 +6,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.JOptionPane;
-
 import object.Myobject;
 import object.ObjectFactory;
 
@@ -49,7 +45,6 @@ public class MyMenuBar extends JMenuBar{
         @Override
         public void actionPerformed(ActionEvent e) {
             if ( mypenel.getSelectObject().size() > 1 ) {
-                System.out.println("GroupOnclick");
                 Myobject group = ObjectFactory.createObject("Composite", null, null) ;
                 mypenel.addObject(group, group.getindex() );
                 mypenel.addSelectObject(group);
@@ -69,8 +64,7 @@ public class MyMenuBar extends JMenuBar{
         @Override
         public void actionPerformed(ActionEvent e) {
             if ( mypenel.getSelectObject().size() == 1 ) {
-                System.out.println("UngroupOnclick");
-                if ( mypenel.getSelectObject().get(0).ungroup() )
+                if ( mypenel.getSelectObject().get(0).unGroup() )
                     mypenel.getObjectList().remove(mypenel.getSelectObject().get(0));
                 mypenel.refresh();
             }
@@ -90,26 +84,10 @@ public class MyMenuBar extends JMenuBar{
         public void actionPerformed(ActionEvent e) {
 
             if ( mypenel.getSelectObject().size() == 1 )
-                rename( mypenel.getSelectObject().get(0) );
+                mypenel.getSelectObject().get(0).reName();
+            mypenel.refresh();
                 
         }
-
-        private void rename( Myobject object ) {
-            if ( object.name != "_composite***" ) {
-                JTextField textArea = new JTextField(object.name);
-                JScrollPane scrollPane = new JScrollPane(textArea);
-                Object[] options = {"OK", "Cancel"};
-                int choice = JOptionPane.showOptionDialog(null, scrollPane, "Enter your text",
-                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
-                if (choice == JOptionPane.OK_OPTION) {
-                    object.name = textArea.getText();
-                    System.out.println("Change to: " + object.name);
-                    mypenel.refresh();
-                }
-            }
-    
-        }
-
 
     }
 

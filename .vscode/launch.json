@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UMLeditor",
+            "request": "launch",
+            "mainClass": "show.UMLeditor",
+            "projectName": "UML_editor_37d181d3"
+        },
+        {
+            "type": "java",
             "name": "UML_editor",
             "request": "launch",
             "mainClass": "show.UML_editor",

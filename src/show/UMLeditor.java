@@ -3,13 +3,13 @@ package show;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
-public class UML_editor extends JFrame {
+public class UMLeditor extends JFrame {
     private MyMenuBar menu ;
     private MyToolbar toolbar ;
     private MyPenel penel ;
 
-    public UML_editor() {
-        System.out.println("UML_editor constructor.");
+    public UMLeditor() {
+        System.out.println("UMLeditor constructor.");
     
         this.setLayout(new BorderLayout());
         
@@ -29,6 +29,6 @@ public class UML_editor extends JFrame {
 
 	}
     public static void main(String[] args) throws Exception {
-        new UML_editor();
+        new UMLeditor();
     }
 }

@@ -45,7 +45,6 @@ public class ToolButton extends JButton {
 
 
     private class ToolbtnOnclick implements ActionListener {
-        //private int index;
 
         public ToolbtnOnclick() {
         }
@@ -54,7 +53,6 @@ public class ToolButton extends JButton {
         public void actionPerformed(ActionEvent e) {
             setclickbtn( (ToolButton) e.getSource() ) ;
         }
-
 
     }
 

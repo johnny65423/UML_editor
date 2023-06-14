@@ -44,7 +44,6 @@ public class CreateLine extends Mymode {
 			List<Myobject> temp = mypenel.getObjectList() ;
 			boolean find = false ;
 	
-			
 			for ( int i = temp.size()-1 ; i >= 0 && !find ; i-- ) {
 				String result = temp.get(i).isOn( e.getPoint() )  ;
 				if ( i != thisindex && result != "out" && result != "group" ) {
@@ -52,12 +51,10 @@ public class CreateLine extends Mymode {
 					find = true ;
 					end = temp.get(i).getPort(result) ;
 				}
-				
-				
 			}
 	
 			mypenel.removeObject(tempLine);
-			if (find) 
+			if ( find ) 
 				mypenel.addObject( ObjectFactory.createObject( this.name, start, end ) );
 			mypenel.refresh() ;
 			start = null ;
@@ -68,12 +65,10 @@ public class CreateLine extends Mymode {
 	}
 	public void mouseDragged(MouseEvent e) {
 		if (start != null) {
-			// System.out.println("drag...");
 			if ( tempLine == null ) {
 				tempLine = ObjectFactory.createObject( this.name, start,  e.getPoint()) ;
 				mypenel.addObject( tempLine ) ;
 			}
-				
 			else 
 				tempLine.setPosition(e.getPoint());
 			

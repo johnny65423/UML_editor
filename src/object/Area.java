@@ -51,6 +51,8 @@ public class Area extends Myobject {
         h = y2 - y1;
     }
     
-
+    public void reName() {
+        System.out.println("Can not rename a Area.");
+    }
 
 }

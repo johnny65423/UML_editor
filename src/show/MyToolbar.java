@@ -9,8 +9,6 @@ import mode.*;
 public class MyToolbar extends JToolBar {
 
     MyToolbar() {
-        //clickedbtn = null ;
-
         this.setLayout(new GridLayout(6, 1));
         this.add( new ToolButton("Select", new Selection()));
         this.add(new ToolButton("Association", new CreateLine( "Association" ) ) );
